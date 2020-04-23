@@ -48,7 +48,6 @@
 |------|----|-------|
 |name|string|null: false|
 |infomation|text|null: false|
-|category|string|null: false|
 |brand|string||
 |status|string|null: false|
 |delivery_fee|string|null: false|
@@ -56,6 +55,7 @@
 |delivery_time|integer|null: false|
 |price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - has_many :product_images
