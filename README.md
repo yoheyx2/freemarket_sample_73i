@@ -1,24 +1,100 @@
-# README
+# freemarket-sample DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル => Trello記載の「ユーザー登録時のビジネスルール」を参照
+##                ユーザー情報(1)、本人確認情報(2)で構成
+|Column|Type|Options|
+|------|----|-------|
+## （1）
+|nickname|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+## （2） => date_of_birthのみdate型を採用
+|first_name|string|null: false|
+|first_name_furigana|string|null: false|
+|last_name|string|null: false|
+|last_name_furigana|string|null: false|
+|date_of_birth|date|null: false|
+### Association
+- has_many :products
+- has_many :cards
+- has_many :addresses
+### 追加実装時 - has_many :likes
+### 追加実装時 - has_many :comments
 
-Things you may want to cover:
+## addressesテーブル => 商品送付先情報 (otherカラムは「マンション名やビル名、部屋番号」を入力する想定)
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|integer|null: false|
+|prefectures|string|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|other|string||
+|phone_number|integer||
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
 
-* Ruby version
+## cardsテーブル => Pay.jpのデータ保管用 (参考URL: https://qiita.com/takachan_coding/items/f7e70794b9ca03b559dd)
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+### Association
+- belongs_to :user
 
-* System dependencies
+## productsテーブル => Trello記載の「商品購入機能のビジネスルール」を参照
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|infomation|text|null: false|
+|category|string|null: false|
+|brand|string||
+|status|string|null: false|
+|delivery_fee|string|null: false|
+|ship_form|string|null: false|
+|delivery_time|integer|null: false|
+|price|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- has_many :product_images
+### 追加実装時 - has_many :likes
+### 追加実装時 - has_many :comments
 
-* Configuration
+## product_imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|product_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :product
 
-* Database creation
+## categorysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string|null: false|
+### Association
+- has_many :products
 
-* Database initialization
+# 「お気に入り機能」追加実装時に必要なテーブル設計
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|product_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :product
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 「質問・コメント機能」追加実装時に必要なテーブル設計
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|product_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :product
