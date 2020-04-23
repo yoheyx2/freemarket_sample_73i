@@ -70,6 +70,13 @@
 ### Association
 - belongs_to :product
 
+## categorysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string|null: false|
+### Association
+- has_many :products
 
 # 「お気に入り機能」追加実装時に必要なテーブル設計
 ## likesテーブル
