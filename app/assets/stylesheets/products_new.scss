@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+}
+
+$color-0: rgb(245, 245, 245);
+$color-1: #fff;
+$color-2: #3CCACE;
+$color-3: rgb(136, 136, 136);
+$color-4: #ccc;
+
+%box-style {
+  padding:40px;
+  border-bottom: solid 1px $color-0;
+}
+%label-style {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+%required-style {
+  margin-left: 8px;
+  font-size: 12px;
+  padding: 0 4px;
+  background-color: $color-2;
+  color: $color-1;
+  border-radius: 2px;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+%form-style {
+  height: 48px;
+  width: 620px;
+  font-size: 16px;
+  display: block;
+  background-color: $color-1;
+  border: 1px solid $color-4;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 16px;
+}
+
+
+.sell {
+  width: 100%;
+  background-color: $color-0;
+  &__header {
+    height: 100px;
+    padding-top: 30px;
+    &--img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  &__product {
+    height: 2150px;
+    width: 700px;
+    background-color: $color-1;
+    margin: 0 auto;
+    &__image {
+      @extend %box-style;
+      height: 300px;
+      &--label {
+        @extend %label-style;
+      }
+      &--span {
+        @extend %required-style;
+      }
+      &--p {
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 1.4em;
+      }
+      &--upload {
+        height: 150px;
+        width: 620px;
+        background-color: $color-0;
+        margin-top: 16px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-width: 1px;
+        border-style: dashed;
+        border-color: $color-4;
+      }
+    }
+    &__text {
+      @extend %box-style;
+      height: 417px;
+      &--label {
+        @extend %label-style;
+      }
+      &--span {
+        @extend %required-style;
+      }
+      &--input {
+        @extend %form-style;
+        padding: 0 16px;
+        margin-bottom: 32px;
+      }
+      &--textarea {
+        width: 620px;
+        display: block;
+        border: 1px solid $color-4;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+        margin-top: 16px;
+        outline: none;
+        padding: 13px 16px;
+        resize: vertical;
+      }
+    }
+    &__detail {
+      @extend %box-style;
+      height: 479px;
+      &--p {
+        color: $color-3;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin-bottom: 24px;
+      }
+      &--label {
+        @extend %label-style;
+      }
+      &--span {
+        @extend %required-style;
+      }
+      &--span-optional {
+        @extend %required-style;
+        background-color: $color-3;
+      }
+      &--select {
+        @extend %form-style;
+        color: #222;
+        line-height: 1;
+        outline: none;
+        padding: 0 56px 0 16px;
+        margin-bottom: 32px;
+      }
+      &--input {
+        @extend %form-style;
+        padding: 0 16px;
+        margin-bottom: 32px;
+      }
+    }
+    &__delivery {
+      @extend %box-style;
+      height: 514px;
+      &--p {
+        color: $color-3;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin-bottom: 24px;
+      }
+      &--label {
+        @extend %label-style;
+      }
+      &--span {
+        @extend %required-style;
+      }
+      &--select {
+        @extend %form-style;
+        color: #222;
+        line-height: 1;
+        outline: none;
+        padding: 0 56px 0 16px;
+        margin-bottom: 32px;
+      }
+      &--input {
+        @extend %form-style;
+        padding: 0 16px;
+        margin-bottom: 32px;
+      }
+    }
+    &__price {
+      height: 293px;
+      padding:40px 40px 0;
+      &--p {
+        color: $color-3;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin-bottom: 24px;
+      }
+      &--label {
+        @extend %label-style;
+      }
+      &--span {
+        @extend %required-style;
+        margin-right: 200px;
+      }
+      &--input {
+        @extend %form-style;
+        display: inline;
+        width: 285px;
+        padding: 0 16px;
+        text-align: right;
+      }
+    }
+    &__submit {
+      @extend %form-style;
+      width: 360px;
+      background-color: $color-2;
+      color: $color-1;
+      font-size: 17px;
+      font-weight: bold;
+      padding: 0 24px;
+      margin: 0 auto 32px;
+    }
+    &__quit {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+  &__footer {
+    height: 100px;
+    padding-top: 30px;
+    &--img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
