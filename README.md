@@ -49,9 +49,9 @@
 |name|string|null: false|
 |infomation|text|null: false|
 |brand|string||
-|status|string|null: false|
-|delivery_fee|string|null: false|
-|ship_form|string|null: false|
+|status|integer|null: false|
+|delivery_fee|integer|null: false|
+|ship_form|integer|null: false|
 |delivery_time|integer|null: false|
 |price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|

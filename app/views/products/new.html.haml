@@ -2,125 +2,58 @@
   .sell__header
     = link_to root_path do
       %img.sell__header--img{height: "40", src: "/logo.png", width: "140"}
-  %form.sell__product
+  .sell__product
+    = form_with model: @product, local: true do |f|
+      .sell__product__image
+        %label.sell__product__image--label 出品画像
+        %span.sell__product__image--span 必須
+        %p.sell__product__image--p 最大10枚までアップロードできます
+        .sell__product__image--upload
+          %input{type: "file", accept:"image/png,image/jpeg", multiple:"", style:"display:none", autocomplete:"off", tabindex:"-1"}
+            %img{height: "18", src: "/icon_camera.png", width: "20"}
+            %p ドラッグアンドドロップまたはクリックしてファイル選択
 
-    .sell__product__image
-      %label.sell__product__image--label 出品画像
-      %span.sell__product__image--span 必須
-      %p.sell__product__image--p 最大10枚までアップロードできます
-      .sell__product__image--upload
-        %input{type: "file", accept:"image/png,image/jpeg", multiple:"", style:"display:none", autocomplete:"off", tabindex:"-1"}
-          %img{height: "18", src: "/icon_camera.png", width: "20"}
-          %p ドラッグアンドドロップまたはクリックしてファイル選択
+      .sell__product__text
+        %label.sell__product__text--label 商品名
+        %span.sell__product__text--span 必須
+        =f.text_field :name, class:"sell__product__text--input" , value:"", placeholder:"40文字まで", autocomplete:"off"
+        %label.sell__product__text--label 商品の説明
+        %span.sell__product__text--span 必須
+        =f.text_area :infomation, class:"sell__product__text--textarea", rows:"7", placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）   例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
-    .sell__product__text
-      %label.sell__product__text--label 商品名
-      %span.sell__product__text--span 必須
-      %input.sell__product__text--input{type:"text", name:"name", value:"", placeholder:"40文字まで", autocomplete:"off"}
-      %label.sell__product__text--label 商品の説明
-      %span.sell__product__text--span 必須
-      %textarea.sell__product__text--textarea{name:"description", rows:"7", placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）   例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"} 
+      .sell__product__detail
+        %p.sell__product__detail--p 商品の詳細
+        %label.sell__product__detail--label カテゴリー
+        %span.sell__product__detail--span 必須
+        =f.select :category, [["test1",1],["test2",2]], {prompt:"選択してください"}, {class:"sell__product__detail--select"}
+        %label.sell__product__detail--label ブランド
+        %span.sell__product__detail--span-optional 任意
+        =f.text_field :brand, class:"sell__product__detail--input" , value:"", placeholder:"例）シャネル", autocomplete:"off"
+        %label.sell__product__detail--label 商品の状態
+        %span.sell__product__detail--span 必須
+        =f.select :status, [["新品、未使用",1],["未使用に近い",2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], {prompt:"選択してください"}, {class:"sell__product__detail--select"}
 
-    .sell__product__detail
-      %p.sell__product__detail--p 商品の詳細
-      %label.sell__product__detail--label カテゴリー
-      %span.sell__product__detail--span 必須
-      %select.sell__product__detail--select
-        %option{value:"", label:"選択してください", placeholder:"選択してください"}
-      %label.sell__product__detail--label ブランド
-      %span.sell__product__detail--span-optional 任意
-      %input.sell__product__detail--input{type:"text", name:"name", value:"", placeholder:"例）シャネル", autocomplete:"off"}
-      %label.sell__product__detail--label 商品の状態
-      %span.sell__product__detail--span 必須
-      %select.sell__product__detail--select
-        %option{label:"選択してください", value:""} 選択してください
-        %option{label:"新品、未使用", value:"1"} 新品、未使用
-        %option{abel:"未使用に近い", value:"2"} 未使用に近い
-        %option{label:"目立った傷や汚れなし", value:"3"} 目立った傷や汚れなし
-        %option{label:"やや傷や汚れあり", value:"4"} やや傷や汚れあり
-        %option{label:"傷や汚れあり", value:"5"} 傷や汚れあり
-        %option{abel:"全体的に状態が悪い", value:"6"} 全体的に状態が悪い
+      .sell__product__delivery
+        %p.sell__product__delivery--p 配送について
+        %label.sell__product__delivery--label 配送料の負担
+        %span.sell__product__delivery--span 必須
+        =f.select :delivery_fee, [["送料込み(出品者負担)",2],["着払い(購入者負担)",1]], {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
+        %label.sell__product__delivery--label 発送元の地域
+        %span.sell__product__delivery--span 必須
+        =f.select :ship_form, [["北海道",1],["青森県",2],["岩手県",3],["宮城県",4],["秋田県",5],["山形県",6],["福島県",7],["茨城県",8],["栃木県",9],["群馬県",10],["埼玉県",11],["千葉県",12],["東京都",13],["神奈川県",14],["新潟県",15],["富山県",16],["石川県",17],["福井県",18],["山梨県",19],["長野県",20],["岐阜県",21],["静岡県",22],["愛知県",23],["三重県",24],["滋賀県",25],["京都府",26],["大阪府",27],["兵庫県",28],["奈良県",29],["和歌山県",30],["鳥取県",31],["島根県",32],["岡山県",33],["広島県",34],["山口県",35],["徳島県",36],["香川県",37],["愛媛県",38],["高知県",39],["福岡県",40],["佐賀県",41],["長崎県",42],["熊本県",43],["大分県",44],["宮崎県",45],["鹿児島県",46],["沖縄県",47],["未定",99]], {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
+        %label.sell__product__delivery--label 発送までの日数
+        %span.sell__product__delivery--span 必須
+        =f.select :delivery_time, [["1~2日で発送",1],["2~3日で発送",2],["4~7日で発送",3]], {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
 
-    .sell__product__delivery
-      %p.sell__product__delivery--p 配送について
-      %label.sell__product__delivery--label 配送料の負担
-      %span.sell__product__delivery--span 必須
-      %select.sell__product__delivery--select
-        %option{label:"選択してください", value:""} 選択してください
-        %option{label:"送料込み(出品者負担)", value:"2"} 送料込み(出品者負担)
-        %option{label:"着払い(購入者負担)", value:"1"} 着払い(購入者負担)
-      %label.sell__product__delivery--label 発送元の地域
-
-      %span.sell__product__delivery--span 必須
-      %select.sell__product__delivery--select
-        %option{label:"選択してください", value:""} 選択してください
-        %option{label: "北海道", value: "1"} 北海道
-        %option{label: "青森県", value: "2"} 青森県
-        %option{label: "岩手県", value: "3"} 岩手県
-        %option{label: "宮城県", value: "4"} 宮城県
-        %option{label: "秋田県", value: "5"} 秋田県
-        %option{label: "山形県", value: "6"} 山形県
-        %option{label: "福島県", value: "7"} 福島県
-        %option{label: "茨城県", value: "8"} 茨城県
-        %option{label: "栃木県", value: "9"} 栃木県
-        %option{label: "群馬県", value: "10"} 群馬県
-        %option{label: "埼玉県", value: "11"} 埼玉県
-        %option{label: "千葉県", value: "12"} 千葉県
-        %option{label: "東京都", value: "13"} 東京都
-        %option{label: "神奈川県", value: "14"} 神奈川県
-        %option{label: "新潟県", value: "15"} 新潟県
-        %option{label: "富山県", value: "16"} 富山県
-        %option{label: "石川県", value: "17"} 石川県
-        %option{label: "福井県", value: "18"} 福井県
-        %option{label: "山梨県", value: "19"} 山梨県
-        %option{label: "長野県", value: "20"} 長野県
-        %option{label: "岐阜県", value: "21"} 岐阜県
-        %option{label: "静岡県", value: "22"} 静岡県
-        %option{label: "愛知県", value: "23"} 愛知県
-        %option{label: "三重県", value: "24"} 三重県
-        %option{label: "滋賀県", value: "25"} 滋賀県
-        %option{label: "京都府", value: "26"} 京都府
-        %option{label: "大阪府", value: "27"} 大阪府
-        %option{label: "兵庫県", value: "28"} 兵庫県
-        %option{label: "奈良県", value: "29"} 奈良県
-        %option{label: "和歌山県", value: "30"} 和歌山県
-        %option{label: "鳥取県", value: "31"} 鳥取県
-        %option{label: "島根県", value: "32"} 島根県
-        %option{label: "岡山県", value: "33"} 岡山県
-        %option{label: "広島県", value: "34"} 広島県
-        %option{label: "山口県", value: "35"} 山口県
-        %option{label: "徳島県", value: "36"} 徳島県
-        %option{label: "香川県", value: "37"} 香川県
-        %option{label: "愛媛県", value: "38"} 愛媛県
-        %option{label: "高知県", value: "39"} 高知県
-        %option{label: "福岡県", value: "40"} 福岡県
-        %option{label: "佐賀県", value: "41"} 佐賀県
-        %option{label: "長崎県", value: "42"} 長崎県
-        %option{label: "熊本県", value: "43"} 熊本県
-        %option{label: "大分県", value: "44"} 大分県
-        %option{label: "宮崎県", value: "45"} 宮崎県
-        %option{label: "鹿児島県", value: "46"} 鹿児島県
-        %option{label: "沖縄県", value: "47"} 沖縄県
-        %option{label: "未定", value: "99"} 未定
-      %label.sell__product__delivery--label 発送までの日数
-      %span.sell__product__delivery--span 必須
-      %select.sell__product__delivery--select
-        %option{label:"選択してください", value:""} 選択してください
-        %option{label: "1~2日で発送", value: "1"} 1~2日で発送
-        %option{label: "2~3日で発送", value: "2"} 2~3日で発送
-        %option{label: "4~7日で発送", value: "3"} 4~7日で発送
-
-
-    .sell__product__price
-      %p.sell__product__price--p 価格（¥300〜9,999,999）
-      %label.sell__product__price--label 販売価格
-      %span.sell__product__price--span 必須
-      %span.sell__product__price--label ¥
-      %input.sell__product__price--input{type:"number", name:"price", placeholder:"0", autocomplete:"off"}
-    %button.sell__product__submit{type:"submit", tabindex:"0"}
-      出品する
-    =link_to root_path,class:"sell__product__quit" do
-      戻る
+      .sell__product__price
+        %p.sell__product__price--p 価格（¥300〜9,999,999）
+        %label.sell__product__price--label 販売価格
+        %span.sell__product__price--span 必須
+        %span.sell__product__price--label ¥
+        =f.number_field :price, class:"sell__product__price--input", placeholder:"0", autocomplete:"off"
+      = f.submit '出品する', class: 'sell__product__submit'
+      =link_to root_path,class:"sell__product__quit" do
+        戻る
   .sell__footer
     = link_to root_path do
       %img.sell__footer--img{height: "40", src: "/logo-white.png", width: "140"}
