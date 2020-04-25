@@ -21,9 +21,4 @@ class ProductsController < ApplicationController
     # ユーザー登録機能実装後は「.merge(user_id: current_user.id)」を記述すること。
   end
 
-  # product_images
-  # |image|string|null: false|
-  # |product_id|integer|null: false, foreign_key: true|
-
-
 end
