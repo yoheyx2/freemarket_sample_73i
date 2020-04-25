@@ -8,11 +8,10 @@
         %label.sell__product__image--label 出品画像
         %span.sell__product__image--span 必須
         %p.sell__product__image--p 最大10枚までアップロードできます
-        .sell__product__image--upload
-          %input{type: "file", accept:"image/png,image/jpeg", multiple:"", style:"display:none", autocomplete:"off", tabindex:"-1"}
-            %img{height: "18", src: "/icon_camera.png", width: "20"}
-            %p ドラッグアンドドロップまたはクリックしてファイル選択
-
+        = f.label :image, class: 'sell__product__image--upload' do
+          = f.file_field :image, accept:"image/png,image/jpeg", multiple:"", style:"display:none", autocomplete:"off", tabindex:"-1"
+          %img{height: "18", src: "/icon_camera.png", width: "20"}
+          %p ドラッグアンドドロップまたはクリックしてファイル選択
       .sell__product__text
         %label.sell__product__text--label 商品名
         %span.sell__product__text--span 必須
@@ -50,7 +49,7 @@
         %label.sell__product__price--label 販売価格
         %span.sell__product__price--span 必須
         %span.sell__product__price--label ¥
-        =f.number_field :price, class:"sell__product__price--input", placeholder:"0", autocomplete:"off"
+        =f.number_field :price, class:"sell__product__price--input", placeholder:"0", autocomplete:"off", min:"300", max:"9999999"
       = f.submit '出品する', class: 'sell__product__submit'
       =link_to root_path,class:"sell__product__quit" do
         戻る
