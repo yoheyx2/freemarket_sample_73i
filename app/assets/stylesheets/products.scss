@@ -67,6 +67,93 @@
             padding-right: 30px;
             font-size: 14px;
           }
+          .displayNone {
+            // display: none;
+          }
+          .tree {
+            z-index: 2;
+            position: absolute;
+            background-color: #fff;
+            width: 240px;
+            top: 40px;
+            .categoryTree {
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              .categoryTree__item {
+                position: relative;
+                color: #333;
+                line-height: 32px;
+                background-position: center right;
+                background-repeat: no-repeat;
+                background-size: 18px;
+                padding-right: 30px;
+                padding-left: 5px;
+                border-bottom: 1px solid #eeeeee;
+                a {
+                  color: #333;
+                  text-decoration: none;
+                  line-height: 32px;
+                  background-position: center right;
+                  background-repeat: no-repeat;
+                  background-size: 18px;
+                  padding-right: 30px;
+                }
+              }
+              .three.displayNone {
+                z-index: 2;
+                position: absolute;
+                left: 240px;
+                background-color: #fff;
+                width: 240px;
+                top: 0px;
+                .childrenTree {
+                  background-color: #fff;
+                  display: flex;
+                  flex-direction: column;
+                  position: relative;
+                  .childrenTree__item {
+                    position: relative;
+                    color: #333;
+                    text-decoration: none;
+                    line-height: 32px;
+                    background-position: center right;
+                    background-repeat: no-repeat;
+                    background-size: 18px;
+                    padding-right: 30px;
+                    a {
+                      color: #333;
+                      text-decoration: none;
+                      line-height: 32px;
+                      background-position: center right;
+                      background-repeat: no-repeat;
+                      background-size: 18px;
+                      padding-right: 30px;
+                    }
+                  }
+                }
+              }
+              .childrenTree {
+                background-color: #fff;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                .childrenTree__item {
+                  position: relative;
+                  a {
+                    color: #333;
+                    text-decoration: none;
+                    line-height: 32px;
+                    background-position: center right;
+                    background-repeat: no-repeat;
+                    background-size: 18px;
+                    padding-right: 30px;
+                  }
+                }
+              }
+            }
+          }
         }
       }
       .listsright {

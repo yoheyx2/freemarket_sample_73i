@@ -15,6 +15,28 @@
         %li.listsleft__item
           = link_to "" do
             カテゴリー
+          .tree.displayNone
+            %ul.categoryTree
+              - @parents.each do |parent|
+                %li.categoryTree__item{data: {id: "1"}}
+                  = link_to  do
+                    = parent.name 
+                -# .three.displayNone
+                  -# %ul.childrenTree
+                  -#   - parent.children.each do |child|
+                  -#     %li.childrenTree__item{data: {id: "2"}}
+                  -#       = link_to "" do
+                  -#         = child.name
+                  -#     .three.displayNone
+                  -#       %ul.childrenTree
+                  -#         - child.children.each do |grandchild|
+                  -#           %li.childrenTree__item{data: {id: "3"}}
+                  -#             = link_to "" do
+                  -#               = grandchild.name
+             
+
+
+
         %li.listsleft__item
           = link_to "" do
             ブランド

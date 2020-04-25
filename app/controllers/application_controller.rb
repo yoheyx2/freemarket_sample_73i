@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
-
+  before_action :get_category
   private
 
   def production?
@@ -13,4 +13,10 @@ class ApplicationController < ActionController::Base
       password == Rails.application.credentials[:basic_auth][:pass]
     end
   end
+ 
+  def get_category
+    @categories = Category.all
+    @parents = Category.all.order("id ASC")  
+  end
+  
 end
