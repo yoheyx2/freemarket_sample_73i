@@ -8,10 +8,11 @@
         %label.sell__product__image--label 出品画像
         %span.sell__product__image--span 必須
         %p.sell__product__image--p 最大10枚までアップロードできます
-        = f.label :image, class: 'sell__product__image--upload' do
-          = f.file_field :image, accept:"image/png,image/jpeg", multiple:"", style:"display:none", autocomplete:"off", tabindex:"-1"
-          %img{height: "18", src: "/icon_camera.png", width: "20"}
-          %p ドラッグアンドドロップまたはクリックしてファイル選択
+        = f.fields_for :product_images do |i|
+          = i.label :image, class: 'sell__product__image--upload' do
+            = i.file_field :image, accept:"image/png,image/jpeg", style:"display:none"
+            %img{height: "18", src: "/icon_camera.png", width: "20"}
+            %p ドラッグアンドドロップまたはクリックしてファイル選択
       .sell__product__text
         %label.sell__product__text--label 商品名
         %span.sell__product__text--span 必須
