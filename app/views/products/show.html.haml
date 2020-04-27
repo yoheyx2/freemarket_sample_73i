@@ -156,9 +156,8 @@
 
 
 
-
-
-
+        /以下は追加機能実装の際に必要になるので記述してます
+       
         .main__showMain__contentRight__topContent__commentBox
           %ul.commentContents
           %form
@@ -171,7 +170,7 @@
             %br    
               
             %button{class: "commentBtn", type: "submit"}
-              %i.fa-comment
+              %i.fa-comment  
                 コメントする
 
 
@@ -202,9 +201,9 @@
         今すぐ無料ダウンロード
       .inner__btn
         = link_to "" ,class: "abtn" do
-          %img{height: "50", src: "card_button-ios.png", width: "180"}
+          %img{height: "50", src: "/card_button-ios.png", width: "180"}
         = link_to "" ,class: "gbtn" do
-          %img{height: "50", src: "unnamed.png", width: "180"}
+          %img{height: "50", src: "/unnamed.png", width: "180"}
 .footer
   %ul.footer__contents
     %li.content
