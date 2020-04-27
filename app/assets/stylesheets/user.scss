@@ -1,0 +1,135 @@
+.single_main {
+  &_container {
+    width: 800px;
+    height: 0 auto;
+    margin: 0 auto;
+    
+    .single_main_form {
+      width: 600px;
+      margin: 0 auto;
+      background-color: white;
+      border: 1px solid gray;
+      h2 {
+        margin-bottom: 60px;
+        text-align: center;
+        font-size: 20px;
+      }
+      .input_form {
+        width: 340px;
+        margin: 0 auto;
+        
+        .nick_name_filed {
+          font-size: 10px;
+          
+        
+          font-weight: bold;
+        }
+        c {
+          background-color: #3ccace;
+          color: white;
+          border-radius: 2px;
+          font-weight: 600;
+          display: inline-block;
+          padding: 0 4px;
+        }
+        .nick_name_filed_box {
+          width: 300px;
+          
+          input {
+            height: 40px;
+            width: 100%;
+            
+          }
+         
+        }
+        .field_mail{
+          
+          font-size: 10px;
+          
+        }
+        .field_mail_box input{
+          width: 300px;
+          
+          height: 40px;
+          margin-bottom: 10px;
+        }
+        .field_password {
+          font-size: 10px;
+        }
+        .field {
+          font-size: 10px;
+        }
+        .field_password_box input{
+          width: 300px;
+          
+          height: 40px;
+          margin-bottom: 10px;
+        }
+        .identification {
+          font-size: 10px;
+          color: black;
+        }
+        .user_name {
+          font-size: 10px;
+          padding-top: 10px;
+          &_box {
+            width: 100%;
+            display: flex;
+            
+            input{
+              width: 40%;
+              height: 40px;
+            }
+            .name {
+              margin-left: 10px;
+            }
+          }
+        }
+        .user_name_kana {
+          padding-top: 10px;
+          font-size: 10px;
+          .user_name_kana_box {
+            display: flex;
+            width: 100%;
+            input {
+             width: 40%;
+             height: 40px;
+           }
+          }
+          .kana{
+            margin-left: 10px;
+          }
+          }
+          .user_birthday {
+            font-size: 10px;
+            padding-top: 10px;
+            
+          
+            }
+            .year {
+              height: 40px;
+              width: 20%;
+            }
+            .month {
+            
+              height: 40px;
+              width: 20%; 
+            }
+            .day {
+              
+              height: 40px;
+              width: 20%;
+            }
+            
+          }
+　　　　　 input {
+         font-size: 20px;
+         }
+        }
+      }
+    }
+
+  
+  
+      
+      

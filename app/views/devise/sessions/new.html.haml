@@ -1,0 +1,28 @@
+.main_head
+  .main_heade_logo
+    
+.main
+  .main_top
+    アカウントをお持ちでない方はこちら
+    %br/
+    .main_top_under
+      新規登録
+  .main_center
+    .main_center_top
+      %h1 facebookでログイン
+      .main_center_under
+        %h2 Googleでログイン
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      .field_mail
+      
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field_password
+      = f.password_field :password, autocomplete: "current-password"
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me
+        = f.label :私はロボットではありません
+    .actions
+      = f.submit "ログイン"
+  /= render "devise/shared/links"
