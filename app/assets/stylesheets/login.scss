@@ -17,14 +17,14 @@ body {
   margin: 0 auto;
   height: 800px;
   &_top {
-    padding-top: 20px;
+    padding-top: 15px;
     &_under {
       color: white;
       width: 80%;
       background-color: blue;
       margin-left: 60px;
-      height: 35px;
-      padding-top: 20px;
+      height: 40px;
+      padding-top: 15px;
       margin-top: 30px;
     }
   }
@@ -45,16 +45,16 @@ body {
         padding-top: 20px;
         h2 {
         color: black;
-        height: 50px;
+        height: 40px;
         background-color: white;
         font-size: 15px;
-        padding-top: 15px;
+        padding-top: 20px;
         border: solid 1px;
         }
       }
       .field {
-        height: 300px;
-        input {
+        
+        .field_email input {
           height: 30px;
         }
       }

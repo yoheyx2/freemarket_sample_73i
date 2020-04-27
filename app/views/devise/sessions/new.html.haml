@@ -14,9 +14,8 @@
         %h2 Googleでログイン
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
-      .field_mail
-      
-        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field_email
+      = f.email_field :email, autofocus: true, autocomplete: "email"
       .field_password
       = f.password_field :password, autocomplete: "current-password"
     - if devise_mapping.rememberable?
