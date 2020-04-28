@@ -51,6 +51,7 @@
         %span.sell__product__price--span 必須
         %span.sell__product__price--label ¥
         =f.number_field :price, class:"sell__product__price--input", placeholder:"0", autocomplete:"off", min:"300", max:"9999999"
+        =f.hidden_field :situation, value: "1"
       = f.submit '出品する', class: 'sell__product__submit'
       =link_to root_path,class:"sell__product__quit" do
         戻る

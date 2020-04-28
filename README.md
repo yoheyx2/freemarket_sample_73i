@@ -25,7 +25,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|integer|null: false|
-|prefectures|string|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |other|string||
@@ -54,6 +54,8 @@
 |ship_form|integer|null: false|
 |delivery_time|integer|null: false|
 |price|integer|null: false|
+|situation|integer|null: false|
+<!-- situationカラムでは 出品中→1 / 売却済→0 でステータスを管理する -->
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 ### Association
