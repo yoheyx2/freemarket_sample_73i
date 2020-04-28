@@ -25,7 +25,7 @@
         %p.sell__product__detail--p 商品の詳細
         %label.sell__product__detail--label カテゴリー
         %span.sell__product__detail--span 必須
-        =f.select :category, [["test1",1],["test2",2]], {prompt:"選択してください"}, {class:"sell__product__detail--select"}
+        =f.select :category, [["レディース",1],["メンズ",2],["子供",3],["おもちゃ",4],["服",5],["消耗品",6],["インテリア",7],["音楽",8],["ゲーム",9],["化粧品",10]], {prompt:"選択してください"}, {class:"sell__product__detail--select"}
         %label.sell__product__detail--label ブランド
         %span.sell__product__detail--span-optional 任意
         =f.text_field :brand, class:"sell__product__detail--input" , value:"", placeholder:"例）シャネル", autocomplete:"off"
