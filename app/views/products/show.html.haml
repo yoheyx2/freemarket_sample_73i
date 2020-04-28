@@ -3,13 +3,14 @@
     .header__top
       %h1.header__top--img
         = link_to "" do
-          %img{height: "40", src: "/logo.png", width: "140"}
+          = image_tag "/logo.png"
       .header__top__search
         = form_for :product do |f|
           = f.text_field :search, class: "search__input", placeholder: "キーワードから探す"
           %button{type: "submit", class: "search__btn"}
             .searchBox__icon
-              %img{height: "20", src: "/icon-search 1.png", width: "20"}
+              = image_tag "/icon-search 1.png", class: "searchBox__icon__image"
+
     .nav
       %ul.listsleft
         %li.listsleft__item
@@ -70,14 +71,14 @@
           .main__showMain__contentRight__topContent__itemBox__body
             %ul
               %li
-                %img{height: "346", src: "/640x640_rect_80733594.jpg"}
+                = image_tag "/640x640_rect_80733594.jpg"
                 %ul                
                   %li
-                    %img{height: "87", src: "/cb114724c45f993.jpeg"}
+                    = image_tag "/cb114724c45f993.jpeg"
                   %li
-                    %img{height: "87", src: "/107562989.jpg"}
+                    = image_tag "/107562989.jpg"
                   %li
-                    %img{height: "87", src: "/640x640_rect_76102931.jpg"}
+                    = image_tag "/640x640_rect_76102931.jpg"
 
           .main__showMain__contentRight__topContent__itemBox__price
             %span
@@ -201,9 +202,12 @@
         今すぐ無料ダウンロード
       .inner__btn
         = link_to "" ,class: "abtn" do
-          %img{height: "50", src: "/card_button-ios.png", width: "180"}
+          = image_tag "/card_button-ios.png"
         = link_to "" ,class: "gbtn" do
-          %img{height: "50", src: "/unnamed.png", width: "180"}
+          = image_tag "/unnamed.png"
+
+
+
 .footer
   %ul.footer__contents
     %li.content
@@ -247,11 +251,11 @@
             お知らせ
   .footer__logo
     = link_to "" do
-      %img{height: "46", src: "/logo-white.png", width: "160"}
+      = image_tag "/logo-white.png"
   %p
     © FURIMA
 = link_to "" do
   .purchaseBtn
     %span.purchaseBtn__text
       出品する
-    %img.purchaseBtn__icon{src: "/icon_camera.png", class: "purchaseBtn__icon"}
+    = image_tag "/icon_camera.png", class: "purchaseBtn__icon"
