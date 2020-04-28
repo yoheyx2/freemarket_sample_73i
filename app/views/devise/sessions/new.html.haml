@@ -1,27 +1,43 @@
-.main_head
-  .main_heade_logo
-    
-.main
-  .main_top
-    アカウントをお持ちでない方はこちら
-    %br/
-    .main_top_under
-      新規登録
-  .main_center
-    .main_center_top
-      %h1 facebookでログイン
-      .main_center_under
+.user__login__container
+  .main
+    .main__header
+      .main__header__image
+        =image_tag  "/logo.png"
+  .middle
+    .middle__top
+      アカウントをお持ちでない方はこちら
+      %br/
+      .middle__top__under
+        新規登録
+    .middle__center
+      .middle__center__top
+        %span
+          = icon('fab', 'facebook-square fa-2x')
+        %h1 facebookでログイン
+      .middle__center__under
+        %span
+          = icon('fab', 'google fa-2x')
         %h2 Googleでログイン
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
-      .field_email
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-      .field_password
-      = f.password_field :password, autocomplete: "current-password"
-    - if devise_mapping.rememberable?
-      .field
-        = f.check_box :remember_me
-        = f.label :私はロボットではありません
-    .actions
-      = f.submit "ログイン"
-  /= render "devise/shared/links"
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .middle__center__field
+        .middle__center__field__email
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス"
+        .middle__center__field__password
+          = f.password_field :password, autocomplete: "current-password", placeholder:"パスワード"
+      - if devise_mapping.rememberable?
+        .middle__center__field__box
+          .middle__center__field__box__check
+            = f.check_box :remember_me
+          .middle__center__field__box__robot
+            私はロボット
+            %br
+            ではありません
+      .middle__center__login
+        = f.submit "ログイン"
+    /= render "devise/shared/links"
+
+  .user__login__footer
+    .footer__text
+      プライバシーポリシー FURIMA利用規約 特定商品取引に関する表記
+    .footer__image
+      =image_tag  "/logo.png"

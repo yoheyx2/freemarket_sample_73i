@@ -1,12 +1,25 @@
-.single_main {
-  &_container {
+.main__head {
+  height: 150px;
+  background-color: white;
+    &__image {
+      img {
+        width: 185px;
+        height: 49px;
+        margin-left: 500px;
+        margin-top: 50px;
+    }
+  }
+}
+.single__main {
+  &__container {
     width: 800px;
-    height: 0 auto;
+    height: 800px;
     margin: 0 auto;
     
-    .single_main_form {
+    .single__main__form {
       width: 600px;
       margin: 0 auto;
+      height: 700px;
       background-color: white;
       border: 1px solid gray;
       h2 {
@@ -14,15 +27,12 @@
         text-align: center;
         font-size: 20px;
       }
-      .input_form {
+      .input__form {
         width: 340px;
         margin: 0 auto;
         
-        .nick_name_filed {
+        .nick__name__filed {
           font-size: 10px;
-          
-        
-          font-weight: bold;
         }
         c {
           background-color: #3ccace;
@@ -32,9 +42,9 @@
           display: inline-block;
           padding: 0 4px;
         }
-        .nick_name_filed_box {
+        .nick__name__filed__box {
           width: 300px;
-          
+          height: 50px;
           input {
             height: 40px;
             width: 100%;
@@ -42,24 +52,24 @@
           }
          
         }
-        .field_mail{
-          
+        .field__mail{
+          padding-top: 15px;
           font-size: 10px;
           
         }
-        .field_mail_box input{
+        .field__mail__box input{
           width: 300px;
           
           height: 40px;
-          margin-bottom: 10px;
+          margin-bottom: 5px;
         }
-        .field_password {
+        .field__password {
           font-size: 10px;
         }
-        .field {
+        .field__check{
           font-size: 10px;
         }
-        .field_password_box input{
+        .field__password__box input{
           width: 300px;
           
           height: 40px;
@@ -69,10 +79,10 @@
           font-size: 10px;
           color: black;
         }
-        .user_name {
+        .user__name {
           font-size: 10px;
           padding-top: 10px;
-          &_box {
+          &__box {
             width: 100%;
             display: flex;
             
@@ -85,10 +95,10 @@
             }
           }
         }
-        .user_name_kana {
+        .user__name__kana {
           padding-top: 10px;
           font-size: 10px;
-          .user_name_kana_box {
+          .user__name__kana__box {
             display: flex;
             width: 100%;
             input {
@@ -100,7 +110,7 @@
             margin-left: 10px;
           }
           }
-          .user_birthday {
+          .user__birthday {
             font-size: 10px;
             padding-top: 10px;
             
@@ -122,11 +132,19 @@
             }
             
           }
-　　　　　 input {
-         font-size: 20px;
-         }
+          .actions {
+            input {
+              border-style: none;
+              height: 50px;
+              width: 300px;
+              background-color: #3ccace;
+              margin-top: 20px;
+            }
+          }
         }
+        
       }
+      
     }
 
   

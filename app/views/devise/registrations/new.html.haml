@@ -1,29 +1,32 @@
-.single_main
-  .single_main_container
-    .single_main_form
+.main__head
+  .main__head__image
+    =image_tag  "/logo.png"
+.single__main
+  .single__main__container
+    .single__main__form
       %h2 会員情報入力
-      .input_form
+      .input__form
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .nick_name_filed
+          .nick__name__filed
             = f.label :ニックネーム 
             %c 必須
-          .nick_name_filed_box
+          .nick__name__filed__box
             %br/
             %input{name: "nickname", type:  "text", placeholder: " 例）フリマ太郎"}/
-          .field_mail
+          .field__mail
             = f.label :メールアドレス
             %c 必須
-          .field_mail_box
+          .field__mail__box
             %br/
             %input{name: "email", type:  "text", placeholder: " PC・携帯どちらでも可"}/
-          .field_password
+          .field__password
             = f.label :パスワード
             %c 必須
-          .field_password_box
+          .field__password__box
             %br/
             %input{name: "password", type:  "text", placeholder:" 7文字以上の半角英数字"}/
           - if devise_mapping.rememberable?
-            .field
+            .field__check
               = f.check_box :remember_me
               = f.label :パスワードを表示する
           .identification
@@ -31,24 +34,24 @@
             %p  安心・安全にご利用いただくために、
             %p  お客さまの本人情報の登録にご協力ください。
             %a  他のお客さまに公開されることはありません。
-          .user_name
+          .user__name
             %a お名前（全角）
             %c  必須
-            .user_name_box
+            .user__name__box
               %br/
               %input{name: "name", type:  "text", placeholder:" 例）山田"}/
               %input{name: "name", type:  "text", placeholder:" 例）太郎", class:"name"}/
-          .user_name_kana
+          .user__name__kana
             %a お名前カナ（全角）
             %c 必須
-            .user_name_kana_box 
+            .user__name__kana__box 
               %br/
               %input{name: "name", type:  "text", placeholder:" 例）ヤマダ"}/
               %input{name: "name", type:  "text", placeholder:" 例）タロウ", class:"kana"}/
-          .user_birthday
+          .user__birthday
             %a 生年月日
             %c 必須
-            .user_birthday_input
+            .user__birthday__input
               %input{name: "name", type:  "text", class:"year"}/ 
               年
               %input{name: "name", type:  "text", class:"month"}/
@@ -58,5 +61,5 @@
           .actions
             = f.submit "登録完了"
 
-        = render "devise/shared/links"
+        /= render "devise/shared/links"
 
