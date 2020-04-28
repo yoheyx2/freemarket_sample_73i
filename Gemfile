@@ -75,7 +75,9 @@ gem 'mini_magick'
 gem 'active_hash'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
+gem "font-awesome-sass"
 
 group :production do
   gem 'unicorn'
 end
+
