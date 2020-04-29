@@ -25,7 +25,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|integer|null: false|
-|prefectures|string|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |other|string||
@@ -48,14 +48,16 @@
 |------|----|-------|
 |name|string|null: false|
 |infomation|text|null: false|
-|category|string|null: false|
 |brand|string||
-|status|string|null: false|
-|delivery_fee|string|null: false|
-|ship_form|string|null: false|
+|status|integer|null: false|
+|delivery_fee|integer|null: false|
+|ship_form|integer|null: false|
 |delivery_time|integer|null: false|
 |price|integer|null: false|
+|situation|integer|null: false|
+<!-- situationカラムでは 出品中→1 / 売却済→0 でステータスを管理する -->
 |user_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - has_many :product_images
