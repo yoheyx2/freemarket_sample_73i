@@ -122,29 +122,23 @@
               width: 20%;
             }
             .month {
-            
               height: 40px;
               width: 20%; 
             }
             .day {
-              
               height: 40px;
               width: 20%;
             }
-          
             .send__information {
               margin-top: 20px;
-              
               &__name {
                 font-size: 10px;
                 margin-top: 30px;
                 &__box {
                   display: flex;
-                  
                   input {
                     width: 40%;
                     height: 40px;
-                    
                   }
                   .send{
                     margin-left: 10px;
@@ -168,12 +162,10 @@
               &__post {
                 font-size: 10px;
                 margin-top: 10px;
-                
                 &__box {
                   display: flex;
                   input {
                     height: 40px;
-
                   }
                   .post__top{
                     width: 20%;
@@ -182,7 +174,6 @@
                     margin-top: 10px;
                   }
                 }
-              
               }
               &__prefecture {
                 font-size: 10px;
@@ -232,8 +223,6 @@
                 }
               }
             }
-            
-
           }
           .actions {
             input {
@@ -245,12 +234,5 @@
             }
           }
         }
-        
       }
-      
     }
-
-  
-  
-      
-      
