@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_040319) do
     t.integer "ship_form", null: false
     t.integer "delivery_time", null: false
     t.integer "price", null: false
+    # t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "situation"
