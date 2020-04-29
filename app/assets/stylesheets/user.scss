@@ -1,7 +1,7 @@
 .main__head {
   height: 150px;
   background-color: white;
-    &__image {
+    &__img {
       img {
         width: 185px;
         height: 49px;
@@ -19,7 +19,7 @@
     .single__main__form {
       width: 600px;
       margin: 0 auto;
-      height: 700px;
+      height: 1350px;
       background-color: white;
       border: 1px solid gray;
       h2 {
@@ -130,7 +130,109 @@
               height: 40px;
               width: 20%;
             }
+          
+            .send__information {
+              margin-top: 20px;
+              
+              &__name {
+                font-size: 10px;
+                margin-top: 30px;
+                &__box {
+                  display: flex;
+                  
+                  input {
+                    width: 40%;
+                    height: 40px;
+                    
+                  }
+                  .send{
+                    margin-left: 10px;
+                  }
+                }
+              }
+              &__kana {
+                padding-top: 10px;
+                font-size: 10px;
+                &__box {
+                  display: flex;
+                  input {
+                    width: 40%;
+                    height: 40px;
+                  }
+                  .under {
+                    margin-left: 10px;
+                  }
+                }
+              }
+              &__post {
+                font-size: 10px;
+                margin-top: 10px;
+                
+                &__box {
+                  display: flex;
+                  input {
+                    height: 40px;
+
+                  }
+                  .post__top{
+                    width: 20%;
+                  }
+                  h1 {
+                    margin-top: 10px;
+                  }
+                }
+              
+              }
+              &__prefecture {
+                font-size: 10px;
+                margin-top: 10px;
+                &__name{
+                  input {
+                    height: 40px;
+                  }
+                }
+              }
+              &__city {
+                font-size: 10px;
+                margin-top: 10px;
+                &__name {
+                  input {
+                    height: 40px;
+                  }
+                }
+              }
+              &__adress {
+                font-size: 10px;
+                margin-top: 10px;
+                &__box {
+                  input {
+                    height: 40px;
+                  }
+                }
+              }
+              &__apart {
+                font-size: 10px;
+                margin-top: 10px;
+                &__name {
+                  input {
+                    height: 40px;
+                    width: 80%;
+                  }
+                }
+              }
+              &__telephone {
+                font-size: 10px;
+                margin-top: 10px;
+                &__number {
+                  input {
+                    height: 40px;
+                    width: 60%;
+                  }
+                }
+              }
+            }
             
+
           }
           .actions {
             input {

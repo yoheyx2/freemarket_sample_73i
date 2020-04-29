@@ -1,5 +1,5 @@
 .main__head
-  .main__head__image
+  .main__head__img
     =image_tag  "/logo.png"
 .single__main
   .single__main__container
@@ -58,6 +58,58 @@
               月
               %input{name: "name", type:  "text", class:"day"}/
               日
+          .send__information
+            商品送付先情報
+            .send__information__name
+              %a お名前（全角）
+              %c 必須
+              .send__information__name__box
+                %br
+                %input{name: "name", type:  "text", placeholder:" 例）鈴木"}/
+                %input{name: "name", type:  "text", placeholder:" 例）三郎", class:"send"}/
+            .send__information__kana
+              %a お名前カナ（全角）
+              %c 必須
+              .send__information__kana__box
+                %br
+                %input{name: "name", type:  "text", placeholder:" 例）スズキ"}/
+                %input{name: "name", type:  "text", placeholder:" 例）サブロウ", class:"under"}/
+            .send__information__post
+              %a 郵便番号
+              %c 必須
+              .send__information__post__box
+                %br
+                %input{name: "name", type:  "text", class:"post__top"}/
+                %h1 ー
+                %input{name: "name", type:  "text",}/
+            .send__information__prefecture
+              %a 都道府県
+              %c 必須
+              .send__information__prefecture__name
+                %input{name: "name", type:  "text",}/
+            .send__information__city
+              %a 市区町村
+              %c 必須
+              .send__information__city__name
+                %input{name: "name", type:  "text",}/
+            .send__information__adress
+              %a 番地
+              %c 必須
+              .send__information__adress__box
+                %input{name: "name", type:  "text",}/
+            .send__information__apart
+              %a マンション名、ビル名、部屋番号
+              %c 任意
+              .send__information__apart__name
+                %input{name: "name", type:  "text",}/
+            .send__information__telephone
+              %a 電話番号
+              %c 任意
+              .send__information__telephone__number
+                %input{name: "name", type:  "text",}/
+
+              
+
           .actions
             = f.submit "登録完了"
 

@@ -26,6 +26,7 @@
     width: 600px;
     margin: 0 auto;
     height: 800px;
+    
     &__top {
       padding-top: 15px;
       &__under {
@@ -47,6 +48,7 @@
         margin-left: 60px;
         height: 50px;
         position: relative;
+        
         span {
           position: absolute;
           top: 10px;
@@ -80,7 +82,7 @@
         }
       }
       &__field {
-        padding-top: 20px;
+        padding-top: 150px;
         &__email {
           input {
             height: 50px;
@@ -140,6 +142,7 @@
         width: 185px;
         height: 60px;
         margin-top: 30px;
+        
       }
     }
   }
