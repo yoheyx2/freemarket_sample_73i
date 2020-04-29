@@ -76,6 +76,7 @@ gem 'active_hash'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem "font-awesome-sass"
+gem 'devise'
 
 group :production do
   gem 'unicorn'
