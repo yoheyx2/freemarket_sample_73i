@@ -318,10 +318,18 @@
           width: 780px;
           margin: 26px auto;
           display: flex;
+          flex-wrap: wrap;
           justify-content: space-around;
           .product__list {
             background-color: white;
             width: 220px;
+            margin-bottom: 30px;
+            &__image {
+              img.url {
+                width: 150px;
+                height: 220px;
+              }
+            }
             &--body {
               color: #333;
               padding: 16px;
