@@ -8,5 +8,6 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @parents = Category.all.order("id ASC")
   end
 end

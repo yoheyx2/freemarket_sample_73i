@@ -25,8 +25,10 @@
       %p.sell__product__detail--p 商品の詳細
       %label.sell__product__detail--label カテゴリー
       %span.sell__product__detail--span 必須
-      %select.sell__product__detail--select
-        %option{value:"", label:"選択してください", placeholder:"選択してください"}
+      %select{ @categories.map{ |category| [category.name, category.id] }, class: "sell__product__detail--select" }
+        - @parents.each do |parent|
+          %option 
+            = parent.name 
       %label.sell__product__detail--label ブランド
       %span.sell__product__detail--span-optional 任意
       %input.sell__product__detail--input{type:"text", name:"name", value:"", placeholder:"例）シャネル", autocomplete:"off"}
