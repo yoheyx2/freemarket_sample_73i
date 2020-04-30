@@ -4,11 +4,12 @@
   text-decoration: none;
 }
 
-.single__container {
+.single {
   background-color: #eeeeee;
   width: 100vw;
   height: auto;
-  .single__header {
+  
+  &__header {
     height: 120px;
     text-align: center;
     h1 {
@@ -21,7 +22,7 @@
     }
   }
   
-  .single__main {
+  &__main {
     &__container {
       background-color: white;
       width: 700px;
@@ -166,7 +167,8 @@
       }
     }
   }
-  .single__footer {
+
+  &__footer {
     margin-top: 40px;
     text-align: center;
     height: 120px;
