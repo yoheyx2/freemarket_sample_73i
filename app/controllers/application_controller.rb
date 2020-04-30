@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
-
+  before_action :get_category
   private
 
   def basic_auth
@@ -12,5 +12,9 @@ class ApplicationController < ActionController::Base
 
   def production?
     Rails.env.production?
+  end
+
+  def get_category
+    @categories = Category.all
   end
 end
