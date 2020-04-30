@@ -15,15 +15,39 @@
         %li.listsleft__item
           = link_to "" do
             カテゴリー
+          .tree.displayNone
+            %ul.categoryTree
+              - @parents.each do |parent|
+                %li.categoryTree__item{data: {id: "1"}}
+                  = link_to "" do
+                    = parent.name 
+                -# .three.displayNone
+                  -# %ul.childrenTree
+                  -#   - parent.children.each do |child|
+                  -#     %li.childrenTree__item{data: {id: "2"}}
+                  -#       = link_to "" do
+                  -#         = child.name
+                  -#     .three.displayNone
+                  -#       %ul.childrenTree
+                  -#         - child.children.each do |grandchild|
+                  -#           %li.childrenTree__item{data: {id: "3"}}
+                  -#             = link_to "" do
+                  -#               = grandchild.name
+             
+
+   
+
+
+
         %li.listsleft__item
           = link_to "" do
             ブランド
       %ul.listsright
         %li.listsright__item
-          = link_to "" do
+          = link_to new_user_session_path do
             ログイン
         %li.listsright__item
-          = link_to "" do
+          = link_to new_user_registration_path do
             新規会員登録    
 .main
   .main__top
@@ -148,7 +172,8 @@
                           0
                       %p
                         (税込)
-    .main__product
+
+  .main__product
     .product__container
       %h2.head
         ピックアップブランド
