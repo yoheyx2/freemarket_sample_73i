@@ -152,23 +152,27 @@
               新規投稿商品
         .product__lists
           - @products.each do |product|
-            = link_to product_path(product) do
-              .product__list
-                - product.product_images.each do |p|
-                  = image_tag p.image.url, class: "product__list--image"
+            = link_to "" do
+              .product__list               
+                - product.product_images.each do |pro|
+                  .product__list--image             
+                    = image_tag pro.image.url
+                    -if product.situation == 0  
+                      .sold-out SOLD OUT
+                        
                   .product__list--body
                     %h3.product__name
                       = product.name
-                      .product__details
-                        %ul
-                          %li
-                            = product.price
-                          %li
-                            %i.fa-star.likeIcon 
-                            0
-                        %p
-                          (税込)
-    .main__product
+                    .product__details
+                      %ul
+                        %li 
+                          = product.price
+                        %li 
+                          %i.fa-star.likeIcon
+                          0
+                      %p
+                        (税込)
+  .main__product
     .product__container
       %h2.head
         ピックアップブランド
