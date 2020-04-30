@@ -78,6 +78,7 @@ gem 'factory_bot_rails'
 gem "font-awesome-sass"
 gem 'devise'
 gem 'fog-aws'
+
 group :production do
   gem 'unicorn'
 end

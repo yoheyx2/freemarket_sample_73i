@@ -1,0 +1,111 @@
+.mypage{
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+  &__user{
+    padding: 24px 0 40px;
+    &__front{
+      width: 700px;
+      height: 200px;
+      background-image: image-url("/450-20180909222840120850.jpg");
+      background-size: contain;
+      text-align: center;
+      line-height: 30px;
+      margin: auto;
+      .user-icon{
+        margin-top: 30px;
+      }
+    }
+    &__list{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 0;
+      align-items: center;
+      &__content-title{
+        &:hover{
+          color:#000;
+          background-color: #ccc;
+          cursor: pointer;
+        }
+      color: #555;
+      display: inline-block;
+      width: 700px;
+      height: 48px;
+      line-height: 48px;
+      padding-left: 20px;
+      margin-bottom: 2px;
+      background-color: white;
+      box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+      }
+    }
+    .setting{
+      width: 700px;
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      padding: 0 0 5px 20px;
+    }
+    &__setting{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__content-title{
+        &:hover{
+          color:#000;
+          background-color: #ccc;
+          cursor: pointer;
+        }
+      color: #555;
+      display: inline-block;
+      width: 700px;
+      height: 48px;
+      line-height: 48px;
+      padding-left: 20px;
+      margin-bottom: 2px;
+      background-color: white;
+      box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+      }
+    }
+  }
+  &__inner {
+    width: 100%;
+    background-image: image-url("/bg-appBanner-pict.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 100px 40px;
+    .inner__container {
+      color: white;
+      text-align: center;
+      .inner__title {
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.4;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      }
+      .inner__text {
+        font-size: 35px;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      }
+      .inner__btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 20px auto 0;
+        .abtn {
+          margin-right: 10px;
+          img {
+            height: 50px;
+            width: 180px;
+          }
+        }
+        .gbtn {
+          img {
+            height: 50px;
+            width: 180px;
+          }
+        }
+      }
+    }
+  }
+}
