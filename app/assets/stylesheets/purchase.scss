@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.single__container {
+  background-color: #eeeeee;
+  width: 100vw;
+  height: auto;
+  .single__header {
+    height: 120px;
+    text-align: center;
+    h1 {
+      padding-top: 40px;
+      img {
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+      }
+    }
+  }
+  
+  .single__main {
+    &__container {
+      background-color: white;
+      width: 700px;
+      margin: 0 auto;
+      .single__head {
+        font-size: 22px;
+        padding: 32px;
+        text-align: center;
+        border-bottom: 1px solid #eeeeee;
+      }
+      .buy__content {
+        padding: 32px 16px;
+        &__inner {
+          max-width: 343px;
+          margin: 0 auto;
+        }
+      }
+      .buy__item {
+        text-align: center;
+        border-bottom: 1px solid #eeeeee;
+        &--box {
+          display: flex;
+          .buy__item--image {
+            height: 80px;
+            width: 80px;
+            min-width: 80px;
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            img {
+              height: 80px;
+              width: 80px;
+              min-width: 80px;
+              display: flex;
+              -webkit-box-pack: center;
+              justify-content: center;
+              -webkit-box-align: center;
+              align-items: center;
+            }
+          }
+          .buy__item--detail {
+            margin-left: 16px;
+            .buy__item--name {
+              font-size: 14px;
+              margin: 0;
+              padding: 0 0 8px;
+              line-height: 1.5;
+              text-align: left;
+            }
+            .buy__item--price {
+              font-size: 12px;
+              margin: 0;
+              text-align: left;
+              font-size: 15px;
+              span {
+                font-size: 12px;
+              }
+            }
+            .bold {
+              font-weight: 600px;
+            }
+          }
+        }
+      }
+      .buy__content {
+        padding: 32px 16px;
+        &__inner {
+          max-width: 343px;
+          margin: 0 auto;
+          form {
+            .buy__price__table {
+              width: 100%;
+              .buy__price__row {
+                padding-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+                &--left {
+                  font-size: 18px;
+                  font-weight: 500;
+                  padding-top: 10px;
+                }
+                &--right {
+                  font-size: 26px;
+                  font-weight: 500;
+                }
+              }
+            }
+          }
+        }
+        .edit__box {
+          position: relative;
+          .shipping__user__address--edit {
+            position: absolute;
+            top: 0px;
+            right: 10px;
+            border: 1px solid red;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 5px ;
+            a {
+              color: red;
+            }
+          }
+        }
+      }
+      .buy__item {
+        text-align: center;
+      }
+      .buy__user__info {
+        padding: 34px 0;
+        border-top: 1px solid #eeeeee;
+        h3 {
+          margin: 0;
+          font-size: 14px;
+          text-align: left;
+          font-weight: 600;
+        }
+        .user__info__text {
+          text-align: left;
+          font-size: 14px;
+          margin-top: 5px;
+          i, span {
+            color: skyblue;
+          }
+        }
+        .shipping__user__address {
+          text-align: left;
+          font-size: 12px;
+          padding-top: 5px;
+        }
+      }
+      .btn-default {
+        border: 1px solid #888;
+        background: #888;
+        color: #fff;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+      }
+    }
+  }
+  .single__footer {
+    margin-top: 40px;
+    text-align: center;
+    height: 120px;
+    &__logo {
+      img {
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+      }
+    }
+    p {
+      font-size: 14px;
+    }
+  }  
+}
