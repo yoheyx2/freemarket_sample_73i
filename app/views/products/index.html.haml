@@ -157,9 +157,9 @@
                 - product.product_images.each do |pro|
                   .product__list--image             
                     = image_tag pro.image.url
-                    -if product.situation==0  
-                      .sold-out
-                        SOLD OUT
+                    -if product.situation == 0  
+                      .sold-out SOLD OUT
+                        
                   .product__list--body
                     %h3.product__name
                       = product.name
@@ -172,7 +172,6 @@
                           0
                       %p
                         (税込)
-
   .main__product
     .product__container
       %h2.head
