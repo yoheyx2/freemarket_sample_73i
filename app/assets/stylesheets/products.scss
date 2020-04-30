@@ -324,10 +324,18 @@
             background-color: white;
             width: 220px;
             margin-bottom: 30px;
-            &__image {
+            &--image {
+              position: relative;
               img.url {
                 width: 150px;
                 height: 220px;
+              }
+              .sold-out {
+                position: absolute;
+                top: 50px;
+                left: 45px;
+                color: red;
+                font-size: 25px;
               }
             }
             &--body {

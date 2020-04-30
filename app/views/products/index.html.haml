@@ -129,9 +129,13 @@
         .product__lists
           - @products.each do |product|
             = link_to "" do
-              .product__list
+              .product__list               
                 - product.product_images.each do |pro|
-                  = image_tag pro.image.url
+                  .product__list--image             
+                    = image_tag pro.image.url
+                    -if product.situation==0  
+                      .sold-out
+                        SOLD OUT
                   .product__list--body
                     %h3.product__name
                       = product.name
