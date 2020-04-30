@@ -1,0 +1,152 @@
+.user__login__container {
+  background-color: #eeeeee;
+  width: 100vw;
+  height: auto;
+  .main {
+    
+    &__header{
+    background-color: #eeeeee;
+    height: 200px;
+    width: 100%;
+    padding-top: 30px;
+      &__image {
+        img {
+          width: 185px;
+          height: 49px;
+          display: block;
+          margin: 0 auto;
+          top: 100px;
+          
+        }
+      }
+    }
+    
+  }
+    
+  .middle {
+    text-align: center;
+    background-color:white;
+    width: 600px;
+    margin: 0 auto;
+    height: 800px;
+    
+    &__top {
+      padding-top: 15px;
+      &__under {
+        color: white;
+        width: 80%;
+        background-color: #87cefa;
+        margin-left: 60px;
+        height: 50px;
+        padding-top: 10px;
+        margin-top: 20px;
+      }
+    }
+    &__center{
+      padding-top: 80px;
+      height: 200px;
+      &__top {
+        width: 80%;
+        background-color: #00008b;
+        margin-left: 60px;
+        height: 50px;
+        position: relative;
+        
+        span {
+          position: absolute;
+          top: 10px;
+          left: 50px;
+          color: white;
+        }
+        h1 {
+          color: white;
+          font-size: 15px;
+          padding-top: 15px;
+        }
+      }
+      &__under {
+        padding-top: 25px;
+        position: relative;
+        span {
+          position: absolute;
+          left: 110px;
+          bottom: 10px;
+          color: #7fffd4;
+        }
+        h2 {
+        color: black;
+        height: 50px;
+        background-color: white;
+        font-size: 15px;
+        padding-top: 10px;
+        border: solid 1px;
+        width: 80%;
+        margin-left: 60px;
+        }
+      }
+      &__field {
+        padding-top: 150px;
+        &__email {
+          input {
+            height: 50px;
+            width: 80%;
+          }
+        }
+        &__password {
+          padding-top: 20px;
+          input {
+            height: 50px;
+            width: 80%;
+          }
+        }
+        &__box{
+          display: flex;
+          margin-left: 60px;
+          border: solid 1px black;
+          width: 200px;
+          height: 50px;
+          margin-top: 20px;
+          &__check {
+              input {
+                height: 30px;
+                width: 30px;
+                margin-left: 30px;
+              }
+          }
+          &__robot {
+          padding-left: 20px;
+          
+          }
+        }
+      } 
+      &__login {
+        height: 100px;
+        
+        margin-top: 30px;
+        input {
+          border-style: none;
+          width: 500px;
+          height: 50px;
+          background-color: #7fffd4;
+        }
+      }  
+  }
+  } 
+  .user__login__footer {
+    height: 250px;
+    text-align: center;
+    margin-top: 30px;
+    
+    .footer__text {
+      margin-left: 10px;
+    }
+    .footer__image {
+      img {
+        width: 185px;
+        height: 60px;
+        margin-top: 30px;
+        
+      }
+    }
+  }
+}
