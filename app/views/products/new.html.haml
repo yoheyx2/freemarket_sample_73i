@@ -52,6 +52,15 @@
         %span.sell__product__price--label ¥
         =f.number_field :price, class:"sell__product__price--input", placeholder:"0", autocomplete:"off", min:"300", max:"9999999"
         =f.hidden_field :situation, value: "1"
+ 
+      .sell__product__fee
+        .sell__product__fee__consumption
+          .sell__product__fee__consumption--div 消費税（10%）
+          %span.sell__product__fee__consumption--js ー
+        .sell__product__fee__total
+          .sell__product__fee__total--div 税込価格
+          %span.sell__product__fee__total--js ー
+
       = f.submit '出品する', class: 'sell__product__submit'
       =link_to root_path,class:"sell__product__quit" do
         戻る

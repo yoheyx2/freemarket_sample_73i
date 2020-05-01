@@ -178,7 +178,7 @@ $color-4: #ccc;
       }
     }
     &__price {
-      height: 293px;
+      height: 150px;
       padding:40px 40px 0;
       &--p {
         color: $color-3;
@@ -192,7 +192,7 @@ $color-4: #ccc;
       }
       &--span {
         @extend %required-style;
-        margin-right: 200px;
+        margin-right: 210px;
       }
       &--input {
         @extend %form-style;
@@ -202,6 +202,37 @@ $color-4: #ccc;
         text-align: right;
       }
     }
+    &__fee {
+      height: 193px;
+      padding:40px 40px 0;
+      &__consumption {
+        display: flex;
+        justify-content: space-between;
+        &--div {
+          font-size: 14px;
+          line-height: 1.4em;
+          margin-bottom: 24px;
+        }
+        &--js {
+          font-size: 14px;
+          margin-right: 10px;
+        }
+      }
+      &__total {
+        display: flex;
+        justify-content: space-between;
+        &--div {
+          font-size: 14px;
+          line-height: 1.4em;
+          margin-bottom: 24px;
+        }
+        &--js {
+          font-size: 14px;
+          margin-right: 10px;
+        }
+      }
+    }
+
     &__submit {
       @extend %form-style;
       width: 360px;
