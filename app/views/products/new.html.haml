@@ -54,12 +54,12 @@
         =f.hidden_field :situation, value: "1"
  
       .sell__product__fee
-        .sell__product__fee__consumption
-          .sell__product__fee__consumption--div 消費税（10%）
-          %span.sell__product__fee__consumption--js ー
-        .sell__product__fee__total
-          .sell__product__fee__total--div 税込価格
-          %span.sell__product__fee__total--js ー
+        .sell__product__fee__commission
+          .sell__product__fee__commission--div 販売手数料（10%）
+          %span.sell__product__fee__commission--js ー
+        .sell__product__fee__profit
+          .sell__product__fee__profit--div 販売利益
+          %span.sell__product__fee__profit--js ー
 
       = f.submit '出品する', class: 'sell__product__submit'
       =link_to root_path,class:"sell__product__quit" do
