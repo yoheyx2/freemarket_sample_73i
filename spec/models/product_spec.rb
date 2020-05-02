@@ -27,10 +27,10 @@ describe Product do
         expect(product.errors[:infomation]).to include("can't be blank")
       end
 
-      it "categoryがない場合は保存できないこと" do
-        product = build(:product, category: nil, product_images: [build(:product_image)])
+      it "category_idがない場合は保存できないこと" do
+        product = build(:product, category_id: nil, product_images: [build(:product_image)])
         product.valid?
-        expect(product.errors[:category]).to include()
+        expect(product.errors[:category_id]).to include()
       end
 
       it "statusがない場合は保存できないこと" do
@@ -60,6 +60,18 @@ describe Product do
 
       it "priceがない場合は保存できないこと" do
         product = build(:product, price: nil, product_images: [build(:product_image)])
+        product.valid?
+        expect(product.errors[:price]).to include()
+      end
+
+      it "priceが300以下の場合は保存できないこと" do
+        product = build(:product, price: "299", product_images: [build(:product_image)])
+        product.valid?
+        expect(product.errors[:price]).to include()
+      end
+
+      it "priceが9,999,999以上の場合は保存できないこと" do
+        product = build(:product, price: "10000000", product_images: [build(:product_image)])
         product.valid?
         expect(product.errors[:price]).to include()
       end
