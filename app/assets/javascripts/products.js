@@ -1,7 +1,7 @@
 $(function() {
 
   $('.sell__product__price--input').change(function() {
-    let commission = 10; 
+    let commission = "10"; 
     let value = $(this).val();
     let value_commission = Math.round((value * commission) / 100);
     let value_profit = parseInt(value) - parseInt(value_commission);
