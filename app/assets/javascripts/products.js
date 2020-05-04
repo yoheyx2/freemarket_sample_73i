@@ -7,7 +7,6 @@ $(function() {
     let value_profit = parseInt(value) - parseInt(value_commission);
 
     if (value == 0) {
- 
       $('.sell__product__fee__commission--js').text("ー");
       $('.sell__product__fee__profit--js').text("ー"); 
     } else {
@@ -17,4 +16,3 @@ $(function() {
   });
   
 });
-
