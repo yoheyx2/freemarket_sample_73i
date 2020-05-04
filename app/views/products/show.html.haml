@@ -1,32 +1,32 @@
 
-.header
-  .header__container
-    .header__top
-      %h1.header__top--img
-        = link_to "" do
-          = image_tag "/logo.png"
-      .header__top__search
-        = form_for :product do |f|
-          = f.text_field :search, class: "search__input", placeholder: "キーワードから探す"
-          %button{type: "submit", class: "search__btn"}
-            .searchBox__icon
-              = image_tag "/icon-search 1.png", class: "searchBox__icon__image"
+-# .header
+-#   .header__container
+-#     .header__top
+-#       %h1.header__top--img
+-#         = link_to "" do
+-#           = image_tag "/logo.png"
+-#       .header__top__search
+-#         = form_for :product do |f|
+-#           = f.text_field :search, class: "search__input", placeholder: "キーワードから探す"
+-#           %button{type: "submit", class: "search__btn"}
+-#             .searchBox__icon
+-#               = image_tag "/icon-search 1.png", class: "searchBox__icon__image"
 
-    .nav
-      %ul.listsleft
-        %li.listsleft__item
-          = link_to "" do
-            カテゴリー
-        %li.listsleft__item
-          = link_to "" do
-            ブランド
-      %ul.listsright
-        %li.listsright__item
-          = link_to "" do
-            ログイン
-        %li.listsright__item
-          = link_to "" do
-            新規会員登録   
+-#     .nav
+-#       %ul.listsleft
+-#         %li.listsleft__item
+-#           = link_to "" do
+-#             カテゴリー
+-#         %li.listsleft__item
+-#           = link_to "" do
+-#             ブランド
+-#       %ul.listsright
+-#         %li.listsright__item
+-#           = link_to "" do
+-#             ログイン
+-#         %li.listsright__item
+-#           = link_to "" do
+-#             新規会員登録   
 
 
 
@@ -149,7 +149,9 @@
               %li.optionalBtn
                 =link_to  '' do
                   %i.fa-flag.likeIcon 不適切な商品の通報
-                    
+          
+          = link_to edit_product_path(@product) do
+            編集
 
 
 

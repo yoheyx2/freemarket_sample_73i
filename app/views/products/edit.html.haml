@@ -1,0 +1,61 @@
+.sell
+  .sell__header
+    = link_to root_path do
+      %img.sell__header--img{height: "40", src: "/logo.png", width: "140"}
+  .sell__product
+    = form_with model: @product, local: true do |f|
+      .sell__product__image
+        %label.sell__product__image--label 出品画像
+        %span.sell__product__image--span 必須
+        %p.sell__product__image--p 最大10枚までアップロードできます
+        = f.fields_for :product_images do |i|
+          = i.label :image, class: 'sell__product__image--upload' do
+            = i.file_field :image, accept:"image/png,image/jpeg", style:"display:none"
+            %img{height: "18", src: "/icon_camera.png", width: "20"}
+            %p ドラッグアンドドロップまたはクリックしてファイル選択
+      .sell__product__text
+        %label.sell__product__text--label 商品名
+        %span.sell__product__text--span 必須
+        =f.text_field :name, class:"sell__product__text--input" , value: "#{ @product.name} ", placeholder:"40文字まで", autocomplete:"off"
+        %label.sell__product__text--label 商品の説明
+        %span.sell__product__text--span 必須
+        =f.text_area :infomation, class:"sell__product__text--textarea", rows:"7", placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）   例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+
+      .sell__product__detail
+        %p.sell__product__detail--p 商品の詳細
+        %label.sell__product__detail--label カテゴリー
+        %span.sell__product__detail--span 必須
+        =f.select :category_id, @categories.map{|category|[category.name,category.id]}, {prompt:"選択してください"}, class: "sell__product__detail--select"
+        %label.sell__product__detail--label ブランド
+        %span.sell__product__detail--span-optional 任意
+        =f.text_field :brand, class:"sell__product__detail--input" , value:"", placeholder:"例）シャネル", autocomplete:"off"
+        %label.sell__product__detail--label 商品の状態
+        %span.sell__product__detail--span 必須
+        =f.select :status, [["新品、未使用",1],["未使用に近い",2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], {prompt:"選択してください"}, {class:"sell__product__detail--select"}
+
+      .sell__product__delivery
+        %p.sell__product__delivery--p 配送について
+        %label.sell__product__delivery--label 配送料の負担
+        %span.sell__product__delivery--span 必須
+        =f.select :delivery_fee, [["送料込み(出品者負担)",2],["着払い(購入者負担)",1]], {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
+        %label.sell__product__delivery--label 発送元の地域
+        %span.sell__product__delivery--span 必須
+        = f.collection_select :ship_form, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
+        %label.sell__product__delivery--label 発送までの日数
+        %span.sell__product__delivery--span 必須
+        =f.select :delivery_time, [["1~2日で発送",1],["2~3日で発送",2],["4~7日で発送",3]], {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
+
+      .sell__product__price
+        %p.sell__product__price--p 価格（¥300〜9,999,999）
+        %label.sell__product__price--label 販売価格
+        %span.sell__product__price--span 必須
+        %span.sell__product__price--label ¥
+        =f.number_field :price, class:"sell__product__price--input", placeholder:"0", autocomplete:"off", min:"300", max:"9999999"
+        =f.hidden_field :situation, value: "1"
+      = f.submit '出品する', class: 'sell__product__submit'
+      =link_to root_path,class:"sell__product__quit" do
+        戻る
+
+  .sell__footer
+    = link_to root_path do
+      %img.sell__footer--img{height: "40", src: "/logo-white.png", width: "140"}
