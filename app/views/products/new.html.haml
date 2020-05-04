@@ -25,7 +25,7 @@
         %p.sell__product__detail--p 商品の詳細
         %label.sell__product__detail--label カテゴリー
         %span.sell__product__detail--span 必須
-        =f.select :category, [["レディース",1],["メンズ",2],["子供",3],["おもちゃ",4],["服",5],["消耗品",6],["インテリア",7],["音楽",8],["ゲーム",9],["化粧品",10]], {prompt:"選択してください"}, {class:"sell__product__detail--select"}
+        =f.select :category_id, @categories.map{|category|[category.name,category.id]}, {prompt:"選択してください"}, class: "sell__product__detail--select"
         %label.sell__product__detail--label ブランド
         %span.sell__product__detail--span-optional 任意
         =f.text_field :brand, class:"sell__product__detail--input" , value:"", placeholder:"例）シャネル", autocomplete:"off"
@@ -52,9 +52,19 @@
         %span.sell__product__price--label ¥
         =f.number_field :price, class:"sell__product__price--input", placeholder:"0", autocomplete:"off", min:"300", max:"9999999"
         =f.hidden_field :situation, value: "1"
+ 
+      .sell__product__fee
+        .sell__product__fee__commission
+          .sell__product__fee__commission--div 販売手数料（10%）
+          %span.sell__product__fee__commission--js ー
+        .sell__product__fee__profit
+          .sell__product__fee__profit--div 販売利益
+          %span.sell__product__fee__profit--js ー
+
       = f.submit '出品する', class: 'sell__product__submit'
       =link_to root_path,class:"sell__product__quit" do
         戻る
+
   .sell__footer
     = link_to root_path do
       %img.sell__footer--img{height: "40", src: "/logo-white.png", width: "140"}

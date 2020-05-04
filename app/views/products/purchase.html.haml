@@ -1,0 +1,53 @@
+.single
+  .single__header
+    %h1
+      = link_to "" do
+        = image_tag "/logo.png" 
+
+  .single__main
+    .single__main__container
+      %h2.single__head.buy__head 購入内容の確認
+      .buy__content.buy__item
+        .buy__content__inner
+          .buy__item--box
+            %h3.buy__item--image
+              = image_tag "/617W+74K1nL._UY395_.jpg"
+            .buy__item--detail
+              .buy__item--name 更にセール❗️ メンズ ヴィトン コンパクト財布
+              .buy__item--price.bold
+                %span ¥2,800 
+                %span.item__fee 税込）送料込み
+      .buy__content.buy__item
+        .buy__content__inner
+          %form
+            %ul.buy__price__table
+              %li.buy__price__row
+                .buy__price__row--left
+                  支払金額
+                .buy__price__row--right
+                  %span ¥2,800
+            .buy__content.buy__user__info
+              .buy__content__inner
+                %h3 お支払い方法
+                = link_to "" do
+                  %p.user__info__text
+                    %i.fa.fa-plus-circle
+                    %span.buy__register__text 登録してください
+            .buy__content.buy__user__info
+              .buy__content__inner.edit__box
+                %h3 配送先
+                .shipping__user__address
+                  %p 〒194-0002 
+                  %p 南裕也
+                  %p 東京都町田市南つくし野4-9-2
+                .shipping__user__address--edit 
+                  = link_to "" do
+                    変更する
+            .buy__content.buy__user__info
+              %button{class: "btn-default", type: "submit"} 購入する
+
+  .single__footer
+    = link_to "", class: "single__footer__logo"  do
+      = image_tag "/logo-white.png" 
+    %p © FURIMA
+      

@@ -15,6 +15,30 @@
         %li.listsleft__item
           = link_to "" do
             カテゴリー
+          .tree.displayNone
+            %ul.categoryTree
+              - @parents.each do |parent|
+                %li.categoryTree__item{data: {id: "1"}}
+                  = link_to "" do
+                    = parent.name 
+                -# .three.displayNone
+                  -# %ul.childrenTree
+                  -#   - parent.children.each do |child|
+                  -#     %li.childrenTree__item{data: {id: "2"}}
+                  -#       = link_to "" do
+                  -#         = child.name
+                  -#     .three.displayNone
+                  -#       %ul.childrenTree
+                  -#         - child.children.each do |grandchild|
+                  -#           %li.childrenTree__item{data: {id: "3"}}
+                  -#             = link_to "" do
+                  -#               = grandchild.name
+             
+
+   
+
+
+
         %li.listsleft__item
           = link_to "" do
             ブランド
@@ -127,55 +151,28 @@
             %h3.product__title
               新規投稿商品
         .product__lists
-          .product__list
+          - @products.each do |product|
             = link_to "" do
-              .product__list--img
-                %img{height: "150", src: "cb114724c45f993.jpeg", width: "220"}
-              .product__list--body
-                %h3.product__name
-                  product3
-                .product__details
-                  %ul
-                    %li 
-                      30000円
-                    %li 
-                      %i.fa-star.likeIcon
-                      0
-                  %p
-                    (税込)
-          .product__list
-            = link_to "" do
-              .product__list--img
-                %img{height: "150", src: "640x640_rect_80733594.jpg", width: "220"}
-              .product__list--body
-                %h3.product__name
-                  product2
-                .product__details
-                  %ul
-                    %li 
-                      20000円
-                    %li 
-                      %i.fa-star.likeIcon
-                      0
-                  %p
-                    (税込)
-          .product__list
-            = link_to "" do
-              .product__list--img
-                %img{height: "150", src: "107562989.jpg", width: "220"}
-              .product__list--body
-                %h3.product__name
-                  product1
-                .product__details
-                  %ul
-                    %li 
-                      10000円
-                    %li 
-                      %i.fa-star.likeIcon
-                      0
-                  %p
-                    (税込)
-    .main__product
+              .product__list               
+                - product.product_images.each do |pro|
+                  .product__list--image             
+                    = image_tag pro.image.url
+                    -if product.situation == 0  
+                      .sold-out SOLD OUT
+                        
+                  .product__list--body
+                    %h3.product__name
+                      = product.name
+                    .product__details
+                      %ul
+                        %li 
+                          = product.price
+                        %li 
+                          %i.fa-star.likeIcon
+                          0
+                      %p
+                        (税込)
+  .main__product
     .product__container
       %h2.head
         ピックアップブランド
