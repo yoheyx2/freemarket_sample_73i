@@ -6,8 +6,8 @@
         = link_to "" do
           = image_tag "/logo.png"
       .header__top__search
-        = form_for :product do |f|
-          = f.text_field :search, class: "search__input", placeholder: "キーワードから探す"
+        %form
+          %input{class: "search__input", placeholder: "キーワードから探す"}
           %button{type: "submit", class: "search__btn"}
             .searchBox__icon
               = image_tag "/icon-search 1.png", class: "searchBox__icon__image"
