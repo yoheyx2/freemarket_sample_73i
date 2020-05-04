@@ -42,15 +42,15 @@
             %c  必須
             .user__name__box
               %br/
-              -# = f.text_field :first_name, type:  "text", placeholder:" 例）山田"
-              -# = f.text_field :last_name, type:  "text", placeholder:" 例）太郎", class:"name"
+              = f.text_field :first_name, placeholder:" 例）山田"
+              = f.text_field :last_name, placeholder:" 例）太郎", class:"name"
           .user__name__kana
             %a お名前カナ（全角）
             %c 必須
             .user__name__kana__box 
               %br/
-              -# = f.text_field :first_name_furigana, type:  "text", placeholder:" 例）ヤマダ"
-              -# = f.text_field :last_name_furigana, type:  "text", placeholder:" 例）タロウ", class:"kana"
+              = f.text_field :first_name_furigana, placeholder:" 例）ヤマダ"
+              = f.text_field :last_name_furigana, placeholder:" 例）タロウ", class:"kana"
           .user__birthday
             %a 生年月日
             %c 必須
