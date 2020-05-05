@@ -59,7 +59,6 @@ $color-4: #ccc;
     margin: 0 auto;
     &__image {
       @extend %box-style;
-      height: 300px;
       &--label {
         @extend %label-style;
       }
@@ -71,19 +70,24 @@ $color-4: #ccc;
         font-size: 14px;
         line-height: 1.4em;
       }
-      &--upload {
-        height: 150px;
+      &__box {
         width: 620px;
-        background-color: $color-0;
-        margin-top: 16px;
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        border-width: 1px;
-        border-style: dashed;
-        border-color: $color-4;
+        &__data {
+          &__upload {
+            height: 150px;
+            width: 620px;
+            background-color: $color-0;
+            margin-top: 16px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border-width: 1px;
+            border-style: dashed;
+            border-color: $color-4;
+          } 
+        }  
       }
     }
     &__text {
