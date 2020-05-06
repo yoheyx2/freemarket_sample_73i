@@ -52,7 +52,19 @@
         %span.sell__product__price--label ¥
         =f.number_field :price, class:"sell__product__price--input", placeholder:"0", autocomplete:"off", min:"300", max:"9999999"
         =f.hidden_field :situation, value: "1"
-      = f.submit '出品する', class: 'sell__product__submit'
+      
+
+      .sell__product__fee
+        .sell__product__fee__commission
+          .sell__product__fee__commission--div 販売手数料（10%）
+          %span.sell__product__fee__commission--js ー
+        .sell__product__fee__profit
+          .sell__product__fee__profit--div 販売利益
+          %span.sell__product__fee__profit--js ー
+
+      = f.submit '保存する', class: 'sell__product__submit'
+      = link_to product_path(@product), method: :delete, class: 'sell__product__destroy' do
+        削除する
       =link_to root_path,class:"sell__product__quit" do
         戻る
 
