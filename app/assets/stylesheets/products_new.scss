@@ -70,6 +70,10 @@ $color-4: #ccc;
         font-size: 14px;
         line-height: 1.4em;
       }
+      &--preview {
+        width: 500px;
+        margin: 0 auto;
+      }
       &__box {
         width: 620px;
         &__data {
