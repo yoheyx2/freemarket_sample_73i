@@ -24,23 +24,17 @@ $(function() {
       let index =  $(".sell__product__image--preview").children().length
 
       if  (index <= 9) { 
-        // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
         if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
           img.setAttribute('src', blobUrl);
-        } else {  // 新規画像追加の処理
+        } else {
           $('.sell__product__image__box__data__upload--js-remove').attr('style', 'visibility:visible');
           $('.sell__product__image--preview').append(buildImg(targetIndex, blobUrl));
-          // fileIndexの先頭の数字を使ってinputを作る
             $('.sell__product__image__box').append(buildFileField(fileIndex[0]));
             fileIndex.shift();
-          // 末尾の数に1足した数を追加する
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-          console.log(index);
         }
       }
     });
-
-
 
   $('.sell__product__image__box').on('click', '.sell__product__image__box__data__upload--js-remove', function() {
     let targetIndex =  $(this).context.getAttribute("data-index");
