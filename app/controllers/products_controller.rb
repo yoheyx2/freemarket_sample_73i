@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.includes(:product_images)
-    @parents = Category.all.order("id ASC")  
   end
 
   def show
