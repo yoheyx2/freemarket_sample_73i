@@ -53,10 +53,10 @@ $color-4: #ccc;
     }
   }
   &__product {
-    height: 2200px;
     width: 700px;
     background-color: $color-1;
     margin: 0 auto;
+    padding-bottom: 50px;
     &__image {
       @extend %box-style;
       &--label {
@@ -75,21 +75,35 @@ $color-4: #ccc;
         margin: 0 auto;
       }
       &__box {
-        width: 620px;
+        width: 500px;
+        height: 70px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
         &__data {
+          width: 100px;
           &__upload {
-            height: 150px;
-            width: 620px;
+            height: 20px;
+            width: 100px;
             background-color: $color-0;
             margin-top: 16px;
             font-size: 12px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             width: 100%;
             border-width: 1px;
             border-style: dashed;
             border-color: $color-4;
+            &--js-select {
+              width: 30px;
+              text-align: center;
+            }
+            &--js-remove {
+              width: 50px;
+              text-align: center;
+              border-left: 1px dashed $color-4;;
+            }
           } 
         }  
       }
