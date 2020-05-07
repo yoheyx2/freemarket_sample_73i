@@ -1,16 +1,15 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.includes(:product_images)
-    @parents = Category.all.order("id ASC")  
   end
 
   def show
-    @parents = Category.all.order("id ASC")  
+
     @product = Product.find(params[:id])
   end
 
   def new
-    @parents = Category.all.order("id ASC")
+
     @product = Product.new
     @product.product_images.build
   end
@@ -46,6 +45,18 @@ class ProductsController < ApplicationController
 
   def purchase
     @product = Product.find(params[:id])
+  end
+
+  def set_parents
+    @parents  = Category.where(ancestry: nil)
+  end
+
+  def set_children
+    @children = Category.where(ancestry: params[:parent_id])
+  end
+
+  def set_grandchildren
+    @grandchildren = Category.where(ancestry: params[:ancestry])
   end
 
   private
