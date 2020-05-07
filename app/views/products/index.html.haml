@@ -43,12 +43,21 @@
           = link_to "" do
             ブランド
       %ul.listsright
-        %li.listsright__item
-          = link_to new_user_session_path do
-            ログイン
-        %li.listsright__item
-          = link_to new_user_registration_path do
-            新規会員登録    
+        - if user_signed_in? 
+          %li.listsright__item
+            = link_to destroy_user_session_path,method: :delete do
+              ログアウト
+          %li.listsright__item
+            = link_to users_path do
+              マイページ
+        - else 
+          %li.listsright__item
+            = link_to new_user_session_path do
+              ログイン
+          %li.listsright__item
+            = link_to new_user_registration_path do
+              新規会員登録    
+          
 .main
   .main__top
     .content
