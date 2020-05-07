@@ -150,9 +150,9 @@
         .product__lists
           - @products.each do |product|
             = link_to product_path(product) do
-              .product__list               
-                - product.product_images.each do |pro|
-                  .product__list--image             
+              .product__list
+                - product.product_images.first(1).each do |pro|
+                  .product__list--image
                     = image_tag pro.image.url
                     -if product.situation == 0  
                       .sold-out SOLD OUT
@@ -289,4 +289,3 @@
     %span.purchaseBtn__text
       出品する
     %img.purchaseBtn__icon{src: "/icon_camera.png", class: "purchaseBtn__icon"}
-  
