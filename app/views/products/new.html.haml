@@ -29,7 +29,7 @@
         %p.sell__product__detail--p 商品の詳細
         %label.sell__product__detail--label カテゴリー
         %span.sell__product__detail--span 必須
-        =f.select :category_id, @categories.map{|category|[category.name,category.id]}, {prompt:"選択してください"}, class: "sell__product__detail--select"
+        #category-select
         %label.sell__product__detail--label ブランド
         %span.sell__product__detail--span-optional 任意
         =f.text_field :brand, class:"sell__product__detail--input" , value:"", placeholder:"例）シャネル", autocomplete:"off"

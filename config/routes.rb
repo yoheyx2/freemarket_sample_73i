@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     member do
       get 'purchase'
     end
+    collection do
+      get "set_parents"
+      get "set_children"
+      get "set_grandchildren"
+    end
   end
 
   resources :categories, only: [:show]
