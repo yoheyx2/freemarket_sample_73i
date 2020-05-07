@@ -53,13 +53,12 @@ $color-4: #ccc;
     }
   }
   &__product {
-    height: 2300px;
     width: 700px;
     background-color: $color-1;
     margin: 0 auto;
+    padding-bottom: 50px;
     &__image {
       @extend %box-style;
-      height: 300px;
       &--label {
         @extend %label-style;
       }
@@ -71,19 +70,42 @@ $color-4: #ccc;
         font-size: 14px;
         line-height: 1.4em;
       }
-      &--upload {
-        height: 150px;
-        width: 620px;
-        background-color: $color-0;
-        margin-top: 16px;
-        font-size: 12px;
+      &--preview {
+        width: 500px;
+        margin: 0 auto;
+      }
+      &__box {
+        width: 500px;
+        height: 70px;
+        margin: 0 auto;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        border-width: 1px;
-        border-style: dashed;
-        border-color: $color-4;
+        flex-wrap: wrap;
+        &__data {
+          width: 100px;
+          &__upload {
+            height: 20px;
+            width: 100px;
+            background-color: $color-0;
+            margin-top: 16px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            border-width: 1px;
+            border-style: dashed;
+            border-color: $color-4;
+            &--js-select {
+              width: 30px;
+              text-align: center;
+            }
+            &--js-remove {
+              width: 50px;
+              text-align: center;
+              border-left: 1px dashed $color-4;;
+            }
+          } 
+        }  
       }
     }
     &__text {
