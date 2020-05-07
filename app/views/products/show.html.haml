@@ -6,8 +6,8 @@
         = link_to "" do
           = image_tag "/logo.png"
       .header__top__search
-        = form_for :product do |f|
-          = f.text_field :search, class: "search__input", placeholder: "キーワードから探す"
+        %form
+          %input{class: "search__input", placeholder: "キーワードから探す"}
           %button{type: "submit", class: "search__btn"}
             .searchBox__icon
               = image_tag "/icon-search 1.png", class: "searchBox__icon__image"
@@ -88,6 +88,15 @@
             .main__showMain__contentRight__topContent__itemBox__price-detail
               %span
                 (税込)送料込み
+
+
+        -if user_signed_in? && current_user.id != @product.user_id
+          .main__showMain__contentRight__topContent__itemBox__menu
+            %button{class: "buyBtn", type: "submit"}
+              %span.buyBtm__text
+                = link_to "購入画面に進む","";
+
+
           .main__showMain__contentRight__topContent__itemBox__itemDetail
             = @product.infomation
           .main__showMain__contentRight__topContent__itemBox__table
@@ -150,9 +159,6 @@
                 =link_to  '' do
                   %i.fa-flag.likeIcon 不適切な商品の通報
                     
-
-
-
 
 
         /以下は追加機能実装の際に必要になるので記述してます
@@ -257,4 +263,9 @@
     %span.purchaseBtn__text
       出品する
     = image_tag "/icon_camera.png", class: "purchaseBtn__icon"
+
+- if user_signed_in? && current_user.id == @product.user_id
+  .editBtn
+    %span.editBtn__text
+    = link_to "商品の編集画面に進む","";
 

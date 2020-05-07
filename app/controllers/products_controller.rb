@@ -20,6 +20,10 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+  end
+
+
   private
   def product_params
     params.require(:product).permit(:name, :infomation, :brand, :status, :delivery_fee, :ship_form, :delivery_time, :price, :category_id, :situation, product_images_attributes: [:image] )

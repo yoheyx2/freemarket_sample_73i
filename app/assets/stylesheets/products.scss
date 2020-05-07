@@ -311,10 +311,8 @@
         .abtn {
           margin-right: 10px;
         }
-      }
-      
+      }      
     }
-
   }
   &__feature {
     padding: 60px 100px;
@@ -360,8 +358,7 @@
         &__subtitle {
           margin: 38px 0 10px;
           font-size: 19px;
-          font-weight: bold;
-       
+          font-weight: bold;      
         }
         &__detail {
           margin-bottom: 40px;
@@ -399,19 +396,24 @@
           width: 780px;
           margin: 26px auto;
           display: flex;
-          justify-content: space-between;
+          justify-content: start;
           flex-wrap: wrap;
           .product__list {
             background-color: white;
             margin-bottom: 30px;
+            margin-left: 40px;
             width: 220px;          
             &--image {
               position: relative;             
               width: 220px;
               height: 150px;
-              img.url {
-                width: 220px;
-                height: 150px;
+              img {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
               }
               .sold-out {
                 position: absolute;
@@ -542,4 +544,3 @@
     width: 60%;
   }
 }
-

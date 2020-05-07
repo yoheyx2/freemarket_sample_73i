@@ -3,13 +3,13 @@
     .header__top
       %h1.header__top--img
         = link_to "" do
-          %img{height: "40", src: "logo.png", width: "140"}
+          %img{height: "40", src: "/logo.png", width: "140"}
       .header__top__search
-        = form_for :product do |f|
-          = f.text_field :search, class: "search__input", placeholder: "キーワードから探す"
+        %form
+          %input{class: "search__input", placeholder: "キーワードから探す"}
           %button{type: "submit", class: "search__btn"}
             .searchBox__icon
-              %img{height: "20", src: "icon-search 1.png", width: "20"}
+              %img{height: "20", src: "/icon-search 1.png", width: "20"}
     .nav
       %ul.listsleft
         %li.listsleft__item
@@ -21,23 +21,19 @@
                 %li.categoryTree__item{data: {id: "1"}}
                   = link_to "" do
                     = parent.name 
-                -# .three.displayNone
-                  -# %ul.childrenTree
-                  -#   - parent.children.each do |child|
-                  -#     %li.childrenTree__item{data: {id: "2"}}
-                  -#       = link_to "" do
-                  -#         = child.name
-                  -#     .three.displayNone
-                  -#       %ul.childrenTree
-                  -#         - child.children.each do |grandchild|
-                  -#           %li.childrenTree__item{data: {id: "3"}}
-                  -#             = link_to "" do
-                  -#               = grandchild.name
+                .three.displayNone
+                  %ul.childrenTree
+                    - parent.children.each do |child|
+                      %li.childrenTree__item{data: {id: "2"}}
+                        = link_to "" do
+                          = child.name
+                      .three.displayNone
+                        %ul.childrenTree
+                          - child.children.each do |grandchild|
+                            %li.childrenTree__item{data: {id: "3"}}
+                              = link_to "" do
+                                = grandchild.name
              
-
-   
-
-
 
         %li.listsleft__item
           = link_to "" do
@@ -61,9 +57,9 @@
           フリマアプリです
       .top__btn 
         = link_to "" ,class: "abtn" do
-          %img{height: "50", src: "card_button-ios.png", width: "180"}
+          %img{height: "50", src: "/card_button-ios.png", width: "180"}
         = link_to "" ,class: "gbtn" do
-          %img{height: "50", src: "unnamed.png", width: "180"}
+          %img{height: "50", src: "/unnamed.png", width: "180"}
   .main__reason
     %h2.reason__subtitle
       FURIMAが選ばれる3つの理由
@@ -72,7 +68,7 @@
         .list__pict
           %span.number
             1
-          %img{src: "pict-reason-01.jpg", width: "300"}
+          %img{src: "/pict-reason-01.jpg", width: "300"}
         %h3.list__text
           %span
             3分
@@ -83,7 +79,7 @@
         .list__pict
           %span.number
             2
-          %img{height: "300", src: "pict-reason-02.jpg", width: "300"}
+          %img{height: "300", src: "/pict-reason-02.jpg", width: "300"}
         %h3.list__text
           %span
             シンプル
@@ -94,7 +90,7 @@
         .list__pict
           %span.number
             3
-          %img{height: "300", src: "pict-reason-03.jpg", width: "300"}
+          %img{height: "300", src: "/pict-reason-03.jpg", width: "300"}
         %h3.list__text
           手数料
           %span
@@ -113,9 +109,9 @@
         ほしかったあの商品に出会えるかもしれません。
       .message__btn 
         = link_to "" ,class: "abtn" do
-          %img{height: "50", src: "card_button-ios.png", width: "180"}
+          %img{height: "50", src: "/card_button-ios.png", width: "180"}
         = link_to "" ,class: "gbtn" do
-          %img{height: "50", src: "unnamed.png", width: "180"}
+          %img{height: "50", src: "/unnamed.png", width: "180"}
   .main__feature
     %h2.subtitle
       FURIMAの特徴
@@ -152,7 +148,7 @@
               新規投稿商品
         .product__lists
           - @products.each do |product|
-            = link_to "" do
+            = link_to product_path(product) do
               .product__list               
                 - product.product_images.each do |pro|
                   .product__list--image             
@@ -185,7 +181,7 @@
           .product__list
             = link_to "" do
               .product__list--img
-                %img{height: "150", src: "640x640_rect_76102931.jpg", width: "220"}
+                %img{height: "150", src: "/640x640_rect_76102931.jpg", width: "220"}
               .product__list--body
                 %h3.product__name
                   product3
@@ -201,7 +197,7 @@
           .product__list
             = link_to "" do
               .product__list--img
-                %img{height: "150", src: "sp_image04.jpg", width: "220"}
+                %img{height: "150", src: "/sp_image04.jpg", width: "220"}
               .product__list--body
                 %h3.product__name
                   product2
@@ -217,7 +213,7 @@
           .product__list
             = link_to "" do
               .product__list--img
-                %img{height: "150", src: "sushi07.jpg", width: "220"}
+                %img{height: "150", src: "/sushi07.jpg", width: "220"}
               .product__list--body
                 %h3.product__name
                   product1
@@ -238,9 +234,9 @@
         今すぐ無料ダウンロード
       .inner__btn
         = link_to "" ,class: "abtn" do
-          %img{height: "50", src: "card_button-ios.png", width: "180"}
+          %img{height: "50", src: "/card_button-ios.png", width: "180"}
         = link_to "" ,class: "gbtn" do
-          %img{height: "50", src: "unnamed.png", width: "180"}
+          %img{height: "50", src: "/unnamed.png", width: "180"}
 .footer
   %ul.footer__contents
     %li.content
