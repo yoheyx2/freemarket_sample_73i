@@ -1,23 +1,42 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.includes(:product_images)
-    @parents = Category.all.order("id ASC")  
   end
 
   def show
-    @parents = Category.all.order("id ASC")  
+
     @product = Product.find(params[:id])
   end
 
   def new
-    @parents = Category.all.order("id ASC")
+
     @product = Product.new
     @product.product_images.build
   end
 
   def create
-    Product.create(product_params)
-    redirect_to root_path
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
+  def purchase
+    @product = Product.find(params[:id])
+  end
+
+  def set_parents
+    @parents  = Category.where(ancestry: nil)
+  end
+
+  def set_children
+    @children = Category.where(ancestry: params[:parent_id])
+  end
+
+  def set_grandchildren
+    @grandchildren = Category.where(ancestry: params[:ancestry])
   end
 
   def edit

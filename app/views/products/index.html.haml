@@ -13,38 +13,39 @@
     .nav
       %ul.listsleft
         %li.listsleft__item
-          = link_to "" do
-            カテゴリー
-          .tree.displayNone
-            %ul.categoryTree
+          カテゴリー
+          .category-box
+            .parent
               - @parents.each do |parent|
-                %li.categoryTree__item{data: {id: "1"}}
-                  = link_to "" do
-                    = parent.name 
-                .three.displayNone
-                  %ul.childrenTree
+                .parent-content
+                  = parent.name
+                  .child
                     - parent.children.each do |child|
-                      %li.childrenTree__item{data: {id: "2"}}
-                        = link_to "" do
-                          = child.name
-                      .three.displayNone
-                        %ul.childrenTree
+                      .child-content
+                        = child.name
+                        .grandchild
                           - child.children.each do |grandchild|
-                            %li.childrenTree__item{data: {id: "3"}}
-                              = link_to "" do
-                                = grandchild.name
-             
+                            .grandchild-content
+                              = grandchild.name
 
         %li.listsleft__item
-          = link_to "" do
-            ブランド
+          ブランド
       %ul.listsright
-        %li.listsright__item
-          = link_to new_user_session_path do
-            ログイン
-        %li.listsright__item
-          = link_to new_user_registration_path do
-            新規会員登録    
+        - if user_signed_in? 
+          %li.listsright__item
+            = link_to destroy_user_session_path,method: :delete do
+              ログアウト
+          %li.listsright__item
+            = link_to users_path do
+              マイページ
+        - else 
+          %li.listsright__item
+            = link_to new_user_session_path do
+              ログイン
+          %li.listsright__item
+            = link_to new_user_registration_path do
+              新規会員登録    
+          
 .main
   .main__top
     .content
