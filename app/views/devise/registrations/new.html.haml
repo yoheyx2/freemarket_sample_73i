@@ -10,28 +10,21 @@
           .nick__name__filed
             = f.label :ニックネーム 
             %c 必須
-          .nick__name__filed__box
-            %br/ 
+          .nick__name__filed__box 
             = f.text_field :nickname, placeholder: "フリマ太郎"
           .field__mail
             = f.label :メールアドレス
             %c 必須
           .field__mail__box
-            %br/
             = f.email_field :email,  placeholder: " PC・携帯どちらでも可"
           .field__password
             = f.label :パスワード
             %c 必須
           .field__password__box
-            %br/
             = f.password_field :password, placeholder:" 7文字以上の半角英数字"
             %br
             = f.label :パスワード（確認用）
             = f.password_field :password_confirmation, autocomplete: "new-password"
-          -# - if devise_mapping.rememberable?
-            -# .field__check
-              -# = f.check_box :remember_me
-              -# = f.label :パスワードを表示する
           .identification
             %a  本人確認
             %p  安心・安全にご利用いただくために、
@@ -103,12 +96,5 @@
               %c 任意
               .send__information__telephone__number
                 = i.text_field :phone_number
-            
-              
-
-            
           .actions
             = f.submit "登録完了"
-
-            
-

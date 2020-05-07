@@ -3,5 +3,4 @@ class UsersController < ApplicationController
     @contents = ["マイページ","お知らせ","いいね！一覧","出品する","出品した商品","購入した商品"]
     @settings = ["プロフィール","支払い方法","メール/パスワード","本人情報","ログアウト"]
   end
-  
 end
