@@ -53,7 +53,7 @@ $color-4: #ccc;
     }
   }
   &__product {
-    height: 2200px;
+    height: 2300px;
     width: 700px;
     background-color: $color-1;
     margin: 0 auto;
@@ -115,7 +115,7 @@ $color-4: #ccc;
     }
     &__detail {
       @extend %box-style;
-      height: 479px;
+      height: 600px;
       &--p {
         color: $color-3;
         font-size: 14px;
