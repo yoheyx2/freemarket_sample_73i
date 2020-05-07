@@ -9,17 +9,17 @@
         = form_for @user,url: user_registration_path do |f|
           .nick__name__filed
             = f.label :ニックネーム 
-            %c 必須
+            %b 必須
           .nick__name__filed__box 
             = f.text_field :nickname, placeholder: "フリマ太郎"
           .field__mail
             = f.label :メールアドレス
-            %c 必須
+            %b 必須
           .field__mail__box
             = f.email_field :email,  placeholder: " PC・携帯どちらでも可"
           .field__password
             = f.label :パスワード
-            %c 必須
+            %b 必須
           .field__password__box
             = f.password_field :password, placeholder:" 7文字以上の半角英数字"
             %br
@@ -32,21 +32,19 @@
             %a  他のお客さまに公開されることはありません。
           .user__name
             %a お名前（全角）
-            %c  必須
+            %b  必須
             .user__name__box
-              %br/
               = f.text_field :first_name, placeholder:" 例）山田"
               = f.text_field :last_name, placeholder:" 例）太郎", class:"name"
           .user__name__kana
             %a お名前カナ（全角）
-            %c 必須
+            %b 必須
             .user__name__kana__box 
-              %br/
               = f.text_field :first_name_furigana, placeholder:" 例）ヤマダ"
               = f.text_field :last_name_furigana, placeholder:" 例）タロウ", class:"kana"
           .user__birthday
             %a 生年月日
-            %c 必須
+            %b 必須
             .user__birthday__input
               =f.date_select :date_of_birth, user_month_numbers: true,start_year: 1930
           = f.fields_for :addresses do |i|    
@@ -54,46 +52,45 @@
               商品送付先情報
               .send__information__name
                 %a お名前（全角）
-                %c 必須
+                %b 必須
                 .send__information__name__box
-                  %br
                   = i.text_field :first_name, placeholder:" 例）鈴木"
                   = i.text_field :last_name, placeholder:" 例）三郎", class:"send"
               .send__information__kana
                 %a お名前カナ（全角）
-                %c 必須
+                %b 必須
                 .send__information__kana__box
                   %br
                   = i.text_field :first_name_furigana, placeholder:" 例）スズキ"
                   = i.text_field :last_name_furigana, placeholder:" 例）サブロウ", class:"under"
               .send__information__post
                 %a 郵便番号
-                %c 必須
+                %b 必須
                 .send__information__post__box
                   = i.text_field :postal_code, placeholder:"012-3456"
             .send__information__prefecture
               %a 都道府県
-              %c 必須
+              %b 必須
               .send__information__prefecture__name
                 = i.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:""}
             .send__information__city
               %a 市区町村
-              %c 必須
+              %b 必須
               .send__information__city__name
                 = i.text_field :city
             .send__information__adress
               %a 番地
-              %c 必須
+              %b 必須
               .send__information__adress__box
                 = i.text_field :address
             .send__information__apart
               %a マンション名、ビル名、部屋番号
-              %c 任意
+              %b 任意
               .send__information__apart__name
                 = i.text_field :other
             .send__information__telephone
               %a 電話番号
-              %c 任意
+              %b 任意
               .send__information__telephone__number
                 = i.text_field :phone_number
           .actions
