@@ -33,14 +33,16 @@
       %p nickname
       %p 出品数 0
     .mypage__user__list
-      - @contents.each do|c|
+      - @contents.each do|content|
         .mypage__user__list__content-title
-          = c
+          = link_to content[:path],method: content[:pattern] do
+            = content[:name]
     %h.setting 設定
     .mypage__user__setting
-      - @settings.each do|c|
+      - @settings.each do|content|
         .mypage__user__list__content-title
-          = c
+          = link_to content[:path],method: content[:pattern] do
+            = content[:name]
   .mypage__inner
     .inner__container
       %h2.inner__title

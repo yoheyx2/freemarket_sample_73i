@@ -27,11 +27,27 @@ class ProductsController < ApplicationController
     unless @product.soldout
       card = Card.where(user_id: current_user.id)
       if card.exists?
-        @card     = Card.find_by(user_id: current_user.id)
+        @card = Card.find_by(user_id: current_user.id)
         Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @default_card_information = Payjp::Customer.retrieve(@card.customer_id).cards.data[0]
       end
+    else
+      redirect_to product_path(@product)
+    end
+  end
+
+  def payment
+    unless @product.soldout
+      @card = Card.find_by(user_id: current_user.id)
+      @product.soldout = true
+      @product.save!
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      @charge = Payjp::Charge.create(
+      amount: @product.price,
+      customer: @card.customer_id,
+      currency: 'jpy'
+      )
     else
       redirect_to product_path(@product)
     end
