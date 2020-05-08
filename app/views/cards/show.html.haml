@@ -1,0 +1,45 @@
+.header
+  .header__container
+    .header__top
+      %h1.header__top--img
+        = link_to "" do
+          = image_tag "/logo.png"
+      .header__top__search
+        = form_for :product do |f|
+          = f.text_field :search, class: "search__input", placeholder: "キーワードから探す"
+          %button{type: "submit", class: "search__btn"}
+            .searchBox__icon
+              = image_tag "/icon-search 1.png", class: "searchBox__icon__image"
+    .nav
+      %ul.listsleft
+        %li.listsleft__item
+          = link_to "" do
+            カテゴリー
+        %li.listsleft__item
+          = link_to "" do
+            ブランド
+      %ul.listsright
+        %li.listsright__item
+          = link_to "" do
+            いいね一覧
+        %li.listsright__item
+          = link_to "" do
+            マイページ   
+.card
+  .card__content
+    .card__content__registration
+      .card__content__registration__title
+        クレジットカード情報照会
+      = image_tag "/visa.png"
+      .card__content__registration__block-title
+        カード番号
+      %input{type: "text", class: "card__content__registration__input-text disabled", disabled: true, value: "**** **** **** " + "#{@default_card_information[:number].last(4)}"}
+        .card__content__registration__block-title
+          有効期限
+        %input{type: "text", class: "card__content__registration__input-text input-half disabled", disabled: true, value: @default_card_information[:exp_month]}
+        %input{type: "text", class: "card__content__registration__input-text input-half disabled", disabled: true, value: @default_card_information[:exp_year]}
+
+.single__footer
+  = link_to "", class: "single__footer__logo"  do
+    = image_tag "/logo-white.png" 
+  %p © FURIMA

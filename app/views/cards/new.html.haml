@@ -1,0 +1,60 @@
+.header
+  .header__container
+    .header__top
+      %h1.header__top--img
+        = link_to "" do
+          = image_tag "/logo.png"
+      .header__top__search
+        = form_for :product do |f|
+          = f.text_field :search, class: "search__input", placeholder: "キーワードから探す"
+          %button{type: "submit", class: "search__btn"}
+            .searchBox__icon
+              = image_tag "/icon-search 1.png", class: "searchBox__icon__image"
+    .nav
+      %ul.listsleft
+        %li.listsleft__item
+          = link_to "" do
+            カテゴリー
+        %li.listsleft__item
+          = link_to "" do
+            ブランド
+      %ul.listsright
+        %li.listsright__item
+          = link_to "" do
+            いいね一覧
+        %li.listsright__item
+          = link_to "" do
+            マイページ   
+.card
+  = form_with model: @card, url: cards_path do |f|
+    .card__content
+      .card__content__registration
+        .card__content__registration__title
+          クレジットカード情報登録
+        .card__content__registration__block-title
+          カード番号
+          %span{class:"require"}
+            必須
+        = f.text_field :number, {class: "card__content__registration__input-text", placeholder: "ハイフンなし、半角数字のみ", value:"4242424242424242"}
+        .card__content__registration__block-title
+          有効期限
+          %span{class:"require"}
+            必須
+        - month = [["月",""]]
+        - for num in 1..12
+          - month << num
+        = f.select :exp_month, month, {}, {class: "card__content__registration__input-text input-half"}
+        - year = [["年",""]]
+        - for num in 0..20
+          - year << 2040-num
+        = f.select :exp_year, year, {}, {class: "card__content__registration__input-text input-half"}
+        .card__content__registration__block-title
+          セキュリティーコード
+          %span{class:"require"}
+            必須
+        = f.text_field :cvc, {class: "card__content__registration__input-text", placeholder: "3〜4文字、半角数字のみ"}
+        = f.submit "登録する", {class: "card__content__registration__input-text submit-btn"}
+.single__footer
+  = link_to "", class: "single__footer__logo"  do
+    = image_tag "/logo-white.png" 
+  %p © FURIMA

@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    @product = Product.find(params[:id])
+    @default_card_information = {number: "4242424242424242", exp_month: "12", exp_year: "2020"}
   end
 
   def set_parents

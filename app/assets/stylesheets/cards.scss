@@ -1,3 +1,48 @@
-// Place all the styles related to the cards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.card__content__registration{
+  padding: 20px;
+  height: 457px;
+  width: 500px;
+  margin: auto;
+  &__title{
+    text-align: center;
+    font-weight: bold;
+  }
+  &__block-title{
+    margin-top: 20px;
+    .require{
+      padding: 3px;
+      color: white;
+      font-size: 12px;
+      border-radius: 4px;
+      background-color: #3ccace;
+    }
+  }
+  &__input-text{
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    padding: 0 16px;
+    width: 460px;
+    margin-top: 10px;
+    border-radius: 4px;
+  }
+  .input-half{
+    width: 217px;
+    margin-right: 10px;
+  }
+  .submit-btn{
+    color: white;
+    margin-top: 30px;
+    border-radius: 0px;
+    background-color: #3ccace;
+    border: 0px solid #000;
+  }
+  .disabled{
+    background-color: #f0f0f0;
+  }
+  img{
+    margin-top: 20px;
+    margin-left: 130px;
+    width: 200px;
+  }
+}

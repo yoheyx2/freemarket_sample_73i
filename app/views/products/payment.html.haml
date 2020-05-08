@@ -1,0 +1,38 @@
+.header
+  .header__container
+    .header__top
+      %h1.header__top--img
+        = link_to "" do
+          = image_tag "/logo.png"
+      .header__top__search
+        = form_for :product do |f|
+          = f.text_field :search, class: "search__input", placeholder: "キーワードから探す"
+          %button{type: "submit", class: "search__btn"}
+            .searchBox__icon
+              = image_tag "/icon-search 1.png", class: "searchBox__icon__image"
+    .nav
+      %ul.listsleft
+        %li.listsleft__item
+          = link_to "" do
+            カテゴリー
+        %li.listsleft__item
+          = link_to "" do
+            ブランド
+      %ul.listsright
+        %li.listsright__item
+          = link_to "" do
+            いいね一覧
+        %li.listsright__item
+          = link_to "" do
+            マイページ   
+.payment
+  .payment__content
+    .payment__content__create
+      商品の購入が完了しました
+      %br
+      = link_to root_path,class: "link-blue" do
+        トップページに戻る
+.single__footer
+  = link_to "", class: "single__footer__logo"  do
+    = image_tag "/logo-white.png" 
+  %p © FURIMA
