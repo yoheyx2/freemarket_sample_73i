@@ -33,11 +33,11 @@
       = image_tag "/visa.png"
       .card__content__registration__block-title
         カード番号
-      %input{type: "text", class: "card__content__registration__input-text disabled", disabled: true, value: "**** **** **** " + "#{@default_card_information[:number].last(4)}"}
+      %input{type: "text", class: "card__content__registration__input-text disabled", disabled: true, value: "**** **** **** " + "#{@default_card_information.last4}"}
         .card__content__registration__block-title
           有効期限
-        %input{type: "text", class: "card__content__registration__input-text input-half disabled", disabled: true, value: @default_card_information[:exp_month]}
-        %input{type: "text", class: "card__content__registration__input-text input-half disabled", disabled: true, value: @default_card_information[:exp_year]}
+        %input{type: "text", class: "card__content__registration__input-text input-half disabled", disabled: true, value: @default_card_information.exp_month}
+        %input{type: "text", class: "card__content__registration__input-text input-half disabled", disabled: true, value: @default_card_information.exp_year}
 
 .single__footer
   = link_to "", class: "single__footer__logo"  do

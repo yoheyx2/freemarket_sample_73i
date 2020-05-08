@@ -24,7 +24,17 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    @default_card_information = {number: "4242424242424242", exp_month: "12", exp_year: "2020"}
+    unless @product.soldout
+      card = Card.where(user_id: current_user.id)
+      if card.exists?
+        @card     = Card.find_by(user_id: current_user.id)
+        Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        @default_card_information = Payjp::Customer.retrieve(@card.customer_id).cards.data[0]
+      end
+    else
+      redirect_to product_path(@product)
+    end
   end
 
   def set_parents
