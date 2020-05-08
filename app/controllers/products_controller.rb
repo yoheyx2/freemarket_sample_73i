@@ -4,12 +4,15 @@ class ProductsController < ApplicationController
   end
 
   def show
-
     @product = Product.find(params[:id])
   end
 
-  def new
+  def edit
+    @product = Product.find(params[:id])
+  end
 
+
+  def new
     @product = Product.new
     @product.product_images.build
   end
@@ -39,14 +42,10 @@ class ProductsController < ApplicationController
     @grandchildren = Category.where(ancestry: params[:ancestry])
   end
 
-  def edit
-  end
-
-
+  
   private
   def product_params
-    params.require(:product).permit(:name, :infomation, :brand, :status, :delivery_fee, :ship_form, :delivery_time, :price, :category_id, :situation, product_images_attributes: [:image] )
-    # ユーザー登録機能実装後は「.merge(user_id: current_user.id)」を記述すること。
+    params.require(:product).permit(:name, :infomation, :brand, :status, :delivery_fee, :ship_form, :delivery_time, :price, :category_id, :situation, product_images_attributes: [:image] ).merge(user_id: current_user.id)
   end
 
 end
