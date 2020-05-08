@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    redirect_to new_user_session_path unless user_signed_in?
     @product = Product.new
     @product.product_images.build
   end
