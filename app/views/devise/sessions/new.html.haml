@@ -7,7 +7,8 @@
     .middle__top
       アカウントをお持ちでない方はこちら
       .middle__top__under
-        新規登録
+        = link_to new_user_registration_path do
+          新規登録
         -# facebook,googleによりログインは追加実装のためコメントアウト
     -# .middle__center
     -#   .middle__center__top

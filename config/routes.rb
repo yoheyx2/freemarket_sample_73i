@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   
   root "products#index"
 
@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show]
   resources :users, only: [:index]
+  
+  
 end
+    
