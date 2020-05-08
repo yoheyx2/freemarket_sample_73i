@@ -1,3 +1,5 @@
+#request{action: request.path}
+
 .sell
   .sell__header
     = link_to root_path do
@@ -8,11 +10,15 @@
         %label.sell__product__image--label 出品画像
         %span.sell__product__image--span 必須
         %p.sell__product__image--p 最大10枚までアップロードできます
-        = f.fields_for :product_images do |i|
-          = i.label :image, class: 'sell__product__image--upload' do
-            = i.file_field :image, accept:"image/png,image/jpeg", style:"display:none"
-            %img{height: "18", src: "/icon_camera.png", width: "20"}
-            %p ドラッグアンドドロップまたはクリックしてファイル選択
+        .sell__product__image--preview
+        .sell__product__image__box
+          = f.fields_for :product_images do |i|
+            .sell__product__image__box__data{data:{index: "#{i.index}"}}
+              = i.label :image, class: 'sell__product__image__box__data__upload' do
+                = i.file_field :image, accept:"image/png,image/jpeg", style:"display:none", class: 'sell__product__image__box__data__upload--js-file'
+                %img{height: "18", src: "/icon_camera.png", width: "20"}
+                %p.sell__product__image__box__data__upload--js-select 選択
+                %span.sell__product__image__box__data__upload--js-remove{data:{index: "0"}, style: "visibility:hidden"}  削除
       .sell__product__text
         %label.sell__product__text--label 商品名
         %span.sell__product__text--span 必須
@@ -25,7 +31,7 @@
         %p.sell__product__detail--p 商品の詳細
         %label.sell__product__detail--label カテゴリー
         %span.sell__product__detail--span 必須
-        =f.select :category_id, @categories.map{|category|[category.name,category.id]}, {prompt:"選択してください"}, class: "sell__product__detail--select"
+        #category-select
         %label.sell__product__detail--label ブランド
         %span.sell__product__detail--span-optional 任意
         =f.text_field :brand, class:"sell__product__detail--input" , value:"", placeholder:"例）シャネル", autocomplete:"off"
