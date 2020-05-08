@@ -48,9 +48,6 @@
             = link_to new_user_registration_path do
               新規会員登録
 
-
-
-
 %nav.breadCrumbs
   %ul
     %li
@@ -74,13 +71,8 @@
     %li
       %i.angle-right
     %li.product
-      %p product3
-
-
-
-
-
-
+      %p  product3
+        
 .main
   .main__showMain
     .main__showMain__contentLeftqq
@@ -94,20 +86,21 @@
               %li
                 - @product.product_images.each do |p|
                   = image_tag p.image.url
-                -# %ul
-                -#   %li
-                -#     = image_tag "/cb114724c45f993.jpeg"
-                -#   %li
-                -#     = image_tag "/107562989.jpg"
-                -#   %li
-                -#     = image_tag "/640x640_rect_76102931.jpg"
-
+                
           .main__showMain__contentRight__topContent__itemBox__price
             %span
               = "¥#{@product.price}"
             .main__showMain__contentRight__topContent__itemBox__price-detail
               %span
                 (税込)送料込み
+
+        -if user_signed_in? && current_user.id != @product.user_id
+          .main__showMain__contentRight__topContent__itemBox__menu
+            %button{class: "buyBtn", type: "submit"}
+              %span.buyBtm__text
+                = link_to "購入画面に進む", purchase_product_path(@product)
+
+
           .main__showMain__contentRight__topContent__itemBox__itemDetail
             = @product.infomation
           .main__showMain__contentRight__topContent__itemBox__table
@@ -178,9 +171,6 @@
                     
 
 
-
-
-
         /以下は追加機能実装の際に必要になるので記述してます
        
         .main__showMain__contentRight__topContent__commentBox
@@ -198,8 +188,6 @@
               %i.fa-comment  
                 コメントする
 
-
-
       %ul.links
         %li.left
           = link_to product_path(@previous) do
@@ -216,8 +204,6 @@
         =link_to ''  do
           ベビー・キッズをもっと見る
 
-
-
   .main__inner
     .inner__container
       %h2.inner__title
@@ -229,8 +215,6 @@
           = image_tag "/card_button-ios.png"
         = link_to "" ,class: "gbtn" do
           = image_tag "/unnamed.png"
-
-
 
 .footer
   %ul.footer__contents
@@ -283,3 +267,9 @@
     %span.purchaseBtn__text
       出品する
     = image_tag "/icon_camera.png", class: "purchaseBtn__icon"
+
+- if user_signed_in? && current_user.id == @product.user_id
+  .editBtn
+    %span.editBtn__text
+    = link_to edit_product_path(@product) do
+      商品の編集画面に進む

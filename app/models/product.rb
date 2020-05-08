@@ -4,6 +4,7 @@ class Product < ApplicationRecord
 
   has_many :product_images
   belongs_to :category, optional: true
+  belongs_to :user
   accepts_nested_attributes_for :product_images, allow_destroy: true
   validates_associated :product_images
   validates :product_images, presence: true
