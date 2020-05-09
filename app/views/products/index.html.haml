@@ -154,7 +154,7 @@
             = link_to product_path(product) do
               .product__list
                 - product.product_images.first(1).each do |pro|
-                  .product__list--image
+                  .product__list--img
                     = image_tag pro.image.url, class:"product__list--img__item__tag"
                     -if product.situation == 0  
                       .sold-out SOLD OUT
