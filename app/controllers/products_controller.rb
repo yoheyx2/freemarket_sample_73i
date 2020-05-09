@@ -7,12 +7,25 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    ids = Product.includes(:product_images).ids
+      if ids.include?(@product.id - 1)
+        @previous = @product.id - 1
+      else
+        @previous = @product.id
+      end
+      if ids.include?(@product.id + 1)
+        @next =  @product.id + 1
+      else
+        @next =  @product.id
+      end
   end
 
   def edit
   end
 
   def new
+    redirect_to new_user_session_path unless user_signed_in?
     @product = Product.new
     @product.product_images.build
   end

@@ -152,9 +152,9 @@
         .product__lists
           - @products.each do |product|
             = link_to product_path(product) do
-              .product__list               
-                - product.product_images.each do |pro|
-                  .product__list--img             
+              .product__list
+                - product.product_images.first(1).each do |pro|
+                  .product__list--image
                     = image_tag pro.image.url, class:"product__list--img__item__tag"
                     -if product.situation == 0  
                       .sold-out SOLD OUT
