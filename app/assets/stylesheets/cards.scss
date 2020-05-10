@@ -1,11 +1,17 @@
 .card__content__registration{
   padding: 20px;
-  height: 457px;
   width: 500px;
   margin: auto;
   &__title{
     text-align: center;
     font-weight: bold;
+  }
+  &__image{
+    padding: 15px;
+    img{
+      height: 20px;
+      width: 30px;
+    }
   }
   &__block-title{
     margin-top: 20px;
@@ -25,6 +31,26 @@
     width: 460px;
     margin-top: 10px;
     border-radius: 4px;
+    display: flex;
+  }
+  &__destroy-btn{
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    padding: 0 16px;
+    width: 460px;
+    margin-top: 10px;
+    border-radius: 4px;
+    color: white;
+    margin-top: 30px;
+    border-radius: 0px;
+    background-color: #3ccace;
+    border: 0px solid #000;
+    text-align: center;
+  }
+  &__img-logo{
+    width: 200px;
+    margin: auto;
   }
   .input-half{
     width: 217px;
@@ -39,10 +65,5 @@
   }
   .disabled{
     background-color: #f0f0f0;
-  }
-  img{
-    margin-top: 20px;
-    margin-left: 130px;
-    width: 200px;
   }
 }

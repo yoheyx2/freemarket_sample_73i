@@ -30,14 +30,21 @@
     .card__content__registration
       .card__content__registration__title
         クレジットカード情報照会
-      = image_tag "/visa.png"
+      .card__content__registration__img-logo
+        = image_tag "#{@card_src}", class: "card__content__registration__img-logo", alt: @card_brand
       .card__content__registration__block-title
         カード番号
-      %input{type: "text", class: "card__content__registration__input-text disabled", disabled: true, value: "**** **** **** " + "#{@default_card_information.last4}"}
+      %input{type: "text", class: "card__content__registration__input-text disabled", disabled: true, value: "**** **** **** " + @customer_card.last4}
         .card__content__registration__block-title
           有効期限
-        %input{type: "text", class: "card__content__registration__input-text input-half disabled", disabled: true, value: @default_card_information.exp_month}
-        %input{type: "text", class: "card__content__registration__input-text input-half disabled", disabled: true, value: @default_card_information.exp_year}
+        .card__content__registration__input-text
+          %input{type: "text", class: "card__content__registration__input-text input-half disabled", disabled: true, value: @exp_month}
+          .month-details 月
+          %input{type: "text", class: "card__content__registration__input-text input-half disabled", disabled: true, value: @exp_year}
+          .year-details 年
+        .card__content__registration__destroy-btn
+          = link_to card_path, method: :delete, class: "card__content__registration__destroy-btn" do 
+            削除する
 
 .single__footer
   = link_to "", class: "single__footer__logo"  do
