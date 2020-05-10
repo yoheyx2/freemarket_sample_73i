@@ -11,14 +11,16 @@
         %span.sell__product__image--span 必須
         %p.sell__product__image--p 最大10枚までアップロードできます
         .sell__product__image--preview
+          - @product.product_images.each_with_index do |image, i|
+            = image_tag image.image.url, data: { index: i - 10 }, width: "100", height: "100"
         .sell__product__image__box
           = f.fields_for :product_images do |i|
-            .sell__product__image__box__data{data:{index: "#{i.index}"}}
+            .sell__product__image__box__data{data:{index: "#{ i.index - 10 }"}}
               = i.label :image, class: 'sell__product__image__box__data__upload' do
                 = i.file_field :image, accept:"image/png,image/jpeg", style:"display:none", class: 'sell__product__image__box__data__upload--js-file'
                 %img{height: "18", src: "/icon_camera.png", width: "20"}
                 %p.sell__product__image__box__data__upload--js-select 選択
-                %span.sell__product__image__box__data__upload--js-remove{data:{index: "0"}, style: "visibility:hidden"}  削除
+                %span.sell__product__image__box__data__upload--js-remove{data:{index: "#{i.index}"}}  削除
       .sell__product__text
         %label.sell__product__text--label 商品名
         %span.sell__product__text--span 必須
@@ -29,9 +31,13 @@
 
       .sell__product__detail
         %p.sell__product__detail--p 商品の詳細
-        %label.sell__product__detail--label カテゴリー
-        %span.sell__product__detail--span 必須
-        #category-select
+        %label.sell__product__detail--label カテゴリ
+        %span.sell__product__detail--span 注意
+
+        = f.select :category_id, @category_parent_array, {selected: @product.category.parent.parent.name}, { class: 'category-wrapper__category form-control sell__product__detail--select', id: 'parent_category'}
+        = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "", selected: @product.category.parent.id}),{}, {class: 'category-wrapper__category form-control sell__product__detail--select', id: 'child_category'}
+        = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "", selected: @product.category.id}),{}, {class: 'category-wrapper__category form-control sell__product__detail--select', id: 'grandchild_category'}
+          
         %label.sell__product__detail--label ブランド
         %span.sell__product__detail--span-optional 任意
         =f.text_field :brand, class:"sell__product__detail--input" , value:"", placeholder:"例）シャネル", autocomplete:"off"

@@ -16,21 +16,25 @@ $(function() {
   }
 
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  var request = $("#request").attr("action");
+  if(request.indexOf("edit") != -1){
+    $('.sell__product__image__box').append(buildFileField(fileIndex[0]));
+  }
 
     $('.sell__product__image__box').on('change', '.sell__product__image__box__data__upload--js-file', function(e) {
       let targetIndex =  $(this).context.id.replace(/[^0-9]/g, '');
       let file = e.target.files[0];
       let blobUrl = window.URL.createObjectURL(file);
-      let index =  $(".sell__product__image--preview").children().length
+      let leng =  $(".sell__product__image--preview").children().length
 
-      if  (index <= 9) { 
+      if  (leng <= 9) { 
         if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
           img.setAttribute('src', blobUrl);
         } else {
           $('.sell__product__image__box__data__upload--js-remove').attr('style', 'visibility:visible');
           $('.sell__product__image--preview').append(buildImg(targetIndex, blobUrl));
-            $('.sell__product__image__box').append(buildFileField(fileIndex[0]));
-            fileIndex.shift();
+          $('.sell__product__image__box').append(buildFileField(fileIndex[1]));
+          fileIndex.shift();
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
         }
       }
