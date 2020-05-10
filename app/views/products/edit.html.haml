@@ -32,12 +32,12 @@
       .sell__product__detail
         %p.sell__product__detail--p 商品の詳細
         %label.sell__product__detail--label カテゴリ
-        %span.sell__product__detail--span 注意
-
-        = f.select :category_id, @category_parent_array, {selected: @product.category.parent.parent.name}, { class: 'category-wrapper__category form-control sell__product__detail--select', id: 'parent_category'}
-        = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "", selected: @product.category.parent.id}),{}, {class: 'category-wrapper__category form-control sell__product__detail--select', id: 'child_category'}
-        = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "", selected: @product.category.id}),{}, {class: 'category-wrapper__category form-control sell__product__detail--select', id: 'grandchild_category'}
-          
+        %span.sell__product__detail--span 必須
+        #category-select
+          = f.collection_select :category_id, @parents, :id, :name, {selected: @product.category.parent.parent.id}, { class: 'category-wrapper__category form-control sell__product__detail--select', id: 'parent_category'}
+          = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "", selected: @product.category.parent.id}),{}, {class: 'category-wrapper__category form-control sell__product__detail--select', id: 'child_category'}
+          = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "", selected: @product.category.id}),{}, {class: 'category-wrapper__category form-control sell__product__detail--select', id: 'grandchild_category'}
+            
         %label.sell__product__detail--label ブランド
         %span.sell__product__detail--span-optional 任意
         =f.text_field :brand, class:"sell__product__detail--input" , value:"", placeholder:"例）シャネル", autocomplete:"off"
