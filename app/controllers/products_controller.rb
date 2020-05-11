@@ -38,16 +38,10 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
 
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     grandchild_category = @product.category
     child_category = grandchild_category.parent
-
-
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
 
     @category_children_array = []
     Category.where(ancestry: child_category.ancestry).each do |children|
@@ -72,8 +66,11 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to root_path
+    if @product.destroy
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def purchase
