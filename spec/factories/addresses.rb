@@ -5,5 +5,4 @@ FactoryBot.define do
     city                     {"世田谷区"}
     address                  {"1111"}
   end
-  end
-  
+ end
