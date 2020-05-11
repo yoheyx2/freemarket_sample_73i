@@ -94,11 +94,11 @@
               %span
                 (税込)送料込み
 
-        -if user_signed_in? && current_user.id != @product.user_id
-          .main__showMain__contentRight__topContent__itemBox__menu
-            %button{class: "buyBtn", type: "submit"}
-              %span.buyBtm__text
-                = link_to "購入画面に進む", purchase_product_path(@product)
+          -if user_signed_in? && current_user.id != @product.user_id
+            .main__showMain__contentRight__topContent__itemBox__menu
+              %button{class: "buyBtn", type: "submit"}
+                %span.buyBtm__text
+                  = link_to "購入画面に進む", purchase_product_path(@product)
 
 
           .main__showMain__contentRight__topContent__itemBox__itemDetail
@@ -170,9 +170,6 @@
                 =link_to  '' do
                   %i.fa-flag.likeIcon 不適切な商品の通報
           
-          = link_to edit_product_path(@product) do
-            編集
-
 
         /以下は追加機能実装の際に必要になるので記述してます
        
