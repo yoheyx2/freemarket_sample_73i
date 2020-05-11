@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   root "products#index"
 
-  resources :products, only: [:index, :show, :new, :create] do
+  resources :products, only: [:index, :show, :new, :create, :edit] do
     member do
       get 'purchase'
     end
@@ -16,7 +16,6 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show]
   resources :users, only: [:index]
-  
   
 end
     

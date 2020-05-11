@@ -2,7 +2,8 @@
   .main
     .main__header
       .main__header__image
-        =image_tag  "/logo.png"
+        = link_to root_path do
+          =image_tag  "/logo.png"
   .middle
     .middle__top
       アカウントをお持ちでない方はこちら
@@ -42,4 +43,5 @@
     .footer__text
       プライバシーポリシー FURIMA利用規約 特定商品取引に関する表記
     .footer__image
-      =image_tag  "/logo-white.png"
+      = link_to root_path do
+        =image_tag  "/logo-white.png"
