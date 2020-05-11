@@ -4,12 +4,13 @@
       %h1.header__top--img
         = link_to "" do
           = image_tag "/logo.png"
+
       .header__top__search
-        = form_for :product do |f|
-          = f.text_field :search, class: "search__input", placeholder: "キーワードから探す"
+        %form
+          %input{class: "search__input", placeholder: "キーワードから探す"}
           %button{type: "submit", class: "search__btn"}
             .searchBox__icon
-              = image_tag "/icon-search 1.png", class: "searchBox__icon__image"
+              = image_tag "/icon-search 1.png", class: "searchBox__icon__tag"
     .nav
       %ul.listsleft
         %li.listsleft__item
@@ -23,7 +24,7 @@
           = link_to "" do
             いいね一覧
         %li.listsright__item
-          = link_to "" do
+          = link_to users_path do
             マイページ   
 .payment
   .payment__content

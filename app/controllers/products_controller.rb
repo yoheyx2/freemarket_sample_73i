@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
         when "MasterCard"
           @card_src = "/mastercard.jpg"
         when "American Express"
-          @card_src = "/Amex.png"
+          @card_src = "/Amex.jpg"
         when "Diners Club"
           @card_src = "/dinners.png"
         when "Discover"
@@ -67,14 +67,14 @@ class ProductsController < ApplicationController
         @exp_year = @customer_card.exp_year.to_s.slice(2,3)
       end
     else
-      redirect_to user_session_path, alert: "ログインしてください"
+      redirect_to user_session_path
     end
   end
 
   def payment
-    unless @product.situation
+    unless @product.situation == 0
       @card = Card.find_by(user_id: current_user.id)
-      @product.soldout = true
+      @product.situation = 0
       @product.save!
       Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       charge = Payjp::Charge.create(

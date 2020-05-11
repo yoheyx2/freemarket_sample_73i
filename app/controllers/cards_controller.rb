@@ -41,7 +41,7 @@ class CardsController < ApplicationController
       when "MasterCard"
         @card_src = "/mastercard.jpg"
       when "American Express"
-        @card_src = "/Amex.png"
+        @card_src = "/Amex.jpg"
       when "Diners Club"
         @card_src = "/dinners.png"
       when "Discover"
