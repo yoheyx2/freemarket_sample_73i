@@ -18,7 +18,8 @@ $(function() {
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   var request = $("#request").attr("action");
   if(request.indexOf("edit") != -1){
-    $('.sell__product__image__box').append(buildFileField(fileIndex[0]));
+    let leng =  $(".sell__product__image--preview").children().length
+    $('.sell__product__image__box').append(buildFileField(fileIndex[leng-1]));
   }
 
     $('.sell__product__image__box').on('change', '.sell__product__image__box__data__upload--js-file', function(e) {
@@ -27,6 +28,7 @@ $(function() {
       let blobUrl = window.URL.createObjectURL(file);
       let leng =  $(".sell__product__image--preview").children().length
 
+    if(request.indexOf("new") != -1){
       if  (leng <= 9) { 
         if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
           img.setAttribute('src', blobUrl);
@@ -38,6 +40,20 @@ $(function() {
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
         }
       }
+    }
+    if(request.indexOf("edit") != -1){
+      if  (leng <= 9) { 
+        if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
+          img.setAttribute('src', blobUrl);
+        } else {
+          $('.sell__product__image__box__data__upload--js-remove').attr('style', 'visibility:visible');
+          $('.sell__product__image--preview').append(buildImg(targetIndex, blobUrl));
+          $('.sell__product__image__box').append(buildFileField(fileIndex[9]));
+          fileIndex.shift();
+          fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+        }
+      }
+    }
     });
 
   $('.sell__product__image__box').on('click', '.sell__product__image__box__data__upload--js-remove', function() {
