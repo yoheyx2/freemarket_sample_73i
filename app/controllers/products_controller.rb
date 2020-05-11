@@ -90,8 +90,7 @@ class ProductsController < ApplicationController
   end
 
   def update_product_params
-    params.require(:product).permit(:name, :infomation, :brand, :status, :delivery_fee, :ship_form, :delivery_time, :price, :category_id, :situation, product_images_attributes: [:image, :_destroy, :id] )
-    # ユーザー登録機能実装後は「.merge(user_id: current_user.id)」を記述すること。
+    params.require(:product).permit(:name, :infomation, :brand, :status, :delivery_fee, :ship_form, :delivery_time, :price, :category_id, :situation, product_images_attributes: [:image, :_destroy, :id] ).merge(user_id: current_user.id)
   end
 
 end
