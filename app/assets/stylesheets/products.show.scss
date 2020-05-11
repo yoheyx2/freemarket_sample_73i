@@ -99,7 +99,6 @@
   }
 }
 
-
 .breadCrumbs {
   width: 100%;
   border-top: 1px solid #eee;
@@ -128,7 +127,6 @@
       }
     }
     
-
     .product {
       font-weight: bold;
       p {
@@ -143,7 +141,6 @@
     clear: both;
   }
 }
-
 
 .main {
   background: #f8f8f8;
@@ -212,6 +209,22 @@
               font-size: 16px;
               span {
                 font-size: 16px;
+              }
+            }
+          }
+          &__menu {
+            .buyBtn {
+              width: -webkit-fill-available;
+              display: block;
+              margin-top: 16px;
+              background: #3CCACE;
+              font-size: 24px;
+              line-height: 56px;
+              font-weight: 600;
+              .buyBtm__text {
+                a {
+                  color: #fff;
+                }
               }
             }
           }
@@ -403,14 +416,6 @@
     }
   }
 
-
-
-
-
-
-
-
-
   &__inner {
     width: 100%;
     background-image: image-url("/bg-appBanner-pict.jpg");
@@ -452,10 +457,6 @@
     }
   }
 }
-
-
-
-
 
 .footer {
   padding: 60px 0;
@@ -520,6 +521,22 @@
   &__icon {
     width: 60%;
   }
+}
+
+.editBtn {
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  position: fixed;
+  padding: 15px;
+  left: 25px;
+  &__text {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 18px;
+  }  
 }
 
 
