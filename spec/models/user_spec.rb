@@ -3,7 +3,7 @@ describe User do
   describe '#create' do
     # userに関して
     it "nickname.email.password.password_confirmation.first_name.first_name_furigana.last_name.last_name_furigana.
-    date_of_birth.postal_code.prefecture_id.city.addressが存在すれば登録出来ること" do
+        date_of_birth.postal_code.prefecture_id.city.addressが存在すれば登録出来ること" do
       user = build(:user)
       expect(user).to be_valid
   end
