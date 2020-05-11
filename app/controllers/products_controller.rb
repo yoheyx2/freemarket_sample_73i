@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product, only: [:edit, :show, :purchase]
+  before_action :set_product, only: [:edit, :show, :purchase, :update, :destroy]
 
   def index
     @products = Product.includes(:product_images)
@@ -20,9 +20,7 @@ class ProductsController < ApplicationController
         @next =  @product.id
       end
   end
-
-  def edit
-  end
+  
 
   def new
     redirect_to new_user_session_path unless user_signed_in?
@@ -36,6 +34,34 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def edit
+
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    grandchild_category = @product.category
+    child_category = grandchild_category.parent
+
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
+    
+    
+  end
+
+  def update
+    if @product.update(update_product_params)
+       redirect_to root_path
+    else
+       render :edit
+    end
+  end
+
+  def destroy
+    if @product.destroy
+      redirect_to root_path
+    else
+      render :edit
     end
   end
 
@@ -61,6 +87,10 @@ class ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit(:name, :infomation, :brand, :status, :delivery_fee, :ship_form, :delivery_time, :price, :category_id, :situation, product_images_attributes: [:image] ).merge(user_id: current_user.id)
+  end
+
+  def update_product_params
+    params.require(:product).permit(:name, :infomation, :brand, :status, :delivery_fee, :ship_form, :delivery_time, :price, :category_id, :situation, product_images_attributes: [:image, :_destroy, :id] ).merge(user_id: current_user.id)
   end
 
 end

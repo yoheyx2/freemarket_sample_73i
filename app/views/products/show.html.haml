@@ -94,11 +94,11 @@
               %span
                 (税込)送料込み
 
-        -if user_signed_in? && current_user.id != @product.user_id
-          .main__showMain__contentRight__topContent__itemBox__menu
-            %button{class: "buyBtn", type: "submit"}
-              %span.buyBtm__text
-                = link_to "購入画面に進む", purchase_product_path(@product)
+          -if user_signed_in? && current_user.id != @product.user_id
+            .main__showMain__contentRight__topContent__itemBox__menu
+              %button{class: "buyBtn", type: "submit"}
+                %span.buyBtm__text
+                  = link_to "購入画面に進む", purchase_product_path(@product)
 
 
           .main__showMain__contentRight__topContent__itemBox__itemDetail
@@ -114,7 +114,7 @@
                   %th
                     カテゴリー
                   %td
-                    = link_to '' do
+                    = link_to "" do
                       = @product.category.parent.parent.name
                       %br
                       %i{class: "fas fa-chevron-right"}
@@ -122,6 +122,7 @@
                       %br
                       %i{class: "fas fa-chevron-right"}
                       = @product.category.name
+                      
                 %tr 
                   %th
                     ブランド
@@ -168,8 +169,7 @@
               %li.optionalBtn
                 =link_to  '' do
                   %i.fa-flag.likeIcon 不適切な商品の通報
-                    
-
+          
 
         /以下は追加機能実装の際に必要になるので記述してます
        
