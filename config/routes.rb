@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :new, :create] do
     member do
       get 'purchase'
-      post 'payment'
+      get 'payment'
     end
     collection do
       get "set_parents"
