@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product, only: [:edit, :show, :purchase]
+  before_action :set_product, only: [:edit, :show, :purchase, :update, :destroy]
 
   def index
     @products = Product.includes(:product_images)
@@ -43,20 +43,13 @@ class ProductsController < ApplicationController
     grandchild_category = @product.category
     child_category = grandchild_category.parent
 
-    @category_children_array = []
-    Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_children_array << children
-    end
-
-    @category_grandchildren_array = []
-    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchildren_array << grandchildren
-    end
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
+    
     
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(update_product_params)
        redirect_to root_path
     else
@@ -65,7 +58,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     if @product.destroy
       redirect_to root_path
     else
