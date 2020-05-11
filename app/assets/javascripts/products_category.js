@@ -13,7 +13,6 @@ $(function(){
       $(".select-parent, #parent_category").on("change", function(){
         $(".select-child").remove();
         $(".select-grandchild").remove();
-        $("#select-parent").remove();
         if($(this).val() == ""){
           $(".select-parent").attr("id"  , "product_category_id");
           $(".select-parent").attr("name", "product[category_id]");
