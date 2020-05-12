@@ -1,0 +1,52 @@
+.header
+  .header__container
+    .header__top
+      %h1.header__top--img
+        = link_to "" do
+          = image_tag "/logo.png"
+      .header__top__search
+        = form_for :product do |f|
+          = f.text_field :search, class: "search__input", placeholder: "キーワードから探す"
+          %button{type: "submit", class: "search__btn"}
+            .searchBox__icon
+              = image_tag "/icon-search 1.png", class: "searchBox__icon__image"
+    .nav
+      %ul.listsleft
+        %li.listsleft__item
+          = link_to "" do
+            カテゴリー
+        %li.listsleft__item
+          = link_to "" do
+            ブランド
+      %ul.listsright
+        %li.listsright__item
+          = link_to "" do
+            いいね一覧
+        %li.listsright__item
+          = link_to users_path do
+            マイページ   
+.card
+  .card__content
+    .card__content__registration
+      .card__content__registration__title
+        クレジットカード情報照会
+      .card__content__registration__img-logo
+        = image_tag "#{@card_src}", class: "card__content__registration__img-logo", alt: @card_brand
+      .card__content__registration__block-title
+        カード番号
+      %input{type: "text", class: "card__content__registration__input-text disabled", disabled: true, value: "**** **** **** " + @customer_card.last4}
+        .card__content__registration__block-title
+          有効期限
+        .card__content__registration__input-text
+          %input{type: "text", class: "card__content__registration__input-text__month input-half disabled", disabled: true, value: @exp_month}
+          .month-details 月
+          %input{type: "text", class: "card__content__registration__input-text__year input-half disabled", disabled: true, value: @exp_year}
+          .year-details 年
+        .card__content__registration__destroy-btn
+          = link_to card_path, method: :delete, class: "card__content__registration__destroy-btn" do 
+            削除する
+
+.single__footer
+  = link_to "", class: "single__footer__logo"  do
+    = image_tag "/logo-white.png" 
+  %p © FURIMA

@@ -25,6 +25,7 @@
   &__main {
     &__container {
       background-color: white;
+      height: 100%;
       width: 700px;
       margin: 0 auto;
       .single__head {
@@ -32,13 +33,6 @@
         padding: 32px;
         text-align: center;
         border-bottom: 1px solid #eeeeee;
-      }
-      .buy__content {
-        padding: 32px 16px;
-        &__inner {
-          max-width: 343px;
-          margin: 0 auto;
-        }
       }
       .buy__item {
         text-align: center;
@@ -118,7 +112,7 @@
           position: relative;
           .shipping__user__address--edit {
             position: absolute;
-            top: 0px;
+            top: 30px;
             right: 10px;
             border: 1px solid red;
             border-radius: 4px;
@@ -143,6 +137,22 @@
           text-align: left;
           font-weight: 600;
         }
+        .card{
+          display: flex;
+          &__content{
+            &__brand{
+              &__img{
+                height: 60px;
+                width: 80px;
+              }
+            }
+            &__info{
+              text-align: center;
+              margin-top: 10px;
+              padding-left: 20px;
+            }
+          }
+        }
         .user__info__text {
           text-align: left;
           font-size: 14px;
@@ -151,19 +161,26 @@
             color: skyblue;
           }
         }
-        .shipping__user__address {
-          text-align: left;
-          font-size: 12px;
-          padding-top: 5px;
+        .shipping__user{
+          &__address {
+            text-align: left;
+            font-size: 12px;
+            padding-top: 5px;
+          }
+          &__name {
+            text-align: left;
+            font-size: 12px;
+          }
         }
       }
       .btn-default {
-        border: 1px solid #888;
-        background: #888;
+        background: #3ccace;
         color: #fff;
         width: 100%;
         line-height: 48px;
-        font-size: 14px;
+        font-size: 20px;
+        padding: 20px 40px;
+        border-radius: 4px;
       }
     }
   }

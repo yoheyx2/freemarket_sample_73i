@@ -82,6 +82,7 @@ gem 'jquery-rails'
 gem "font-awesome-sass"
 gem 'devise'
 gem 'fog-aws'
+gem 'payjp'
 
 group :production do
   gem 'unicorn'

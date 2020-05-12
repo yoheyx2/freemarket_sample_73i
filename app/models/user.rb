@@ -6,6 +6,7 @@ class User < ApplicationRecord
          has_many :addresses
          has_many :products
          accepts_nested_attributes_for :addresses
+         has_one :card, dependent: :destroy
          validates :nickname, presence: true
          validates :password, length: {minimum: 7}
          validates :password_confirmation, length: {minimum: 7}
