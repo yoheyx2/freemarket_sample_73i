@@ -1,0 +1,90 @@
+.header
+  .header__container
+    .header__top
+      %h1.header__top--img
+        = link_to "" do
+          = image_tag "/logo.png"
+      .header__top__search
+        = form_for :product do |f|
+          = f.text_field :search, class: "search__input", placeholder: "キーワードから探す"
+          %button{type: "submit", class: "search__btn"}
+            .searchBox__icon
+              = image_tag "/icon-search 1.png", class: "searchBox__icon__image"
+    .nav
+      %ul.listsleft
+        %li.listsleft__item
+          = link_to "" do
+            カテゴリー
+        %li.listsleft__item
+          = link_to "" do
+            ブランド
+      %ul.listsright
+        %li.listsright__item
+          = link_to "" do
+            いいね一覧
+        %li.listsright__item
+          = link_to "" do
+            マイページ   
+.card
+  = form_tag(cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do
+    .card__content
+      .card__content__registration
+        .card__content__registration__title
+          クレジットカード情報登録
+        .card__content__registration__block-title
+          カード番号
+          %span{class:"require"}
+            必須
+        = text_field_tag 'number', "", class: 'card__content__registration__input-text', id: "number", placeholder: '半角数字のみ', type: "text", maxlength: "16"
+        .card__content__registration__image
+          = image_tag "/visa-logo.png"
+          = image_tag "/mastercard.jpg"
+          = image_tag "/JCB.png"
+          = image_tag "/dinners.png"
+          = image_tag "/discovercard.jpg"
+        .card__content__registration__block-title
+          有効期限
+          %span{class:"require"}
+            必須
+        .card__content__registration__input-text
+          %select#exp_month{name: "exp_month", type: "text"}
+            %option{value: ""}
+            %option{value: "1"} 01
+            %option{value: "2"} 02
+            %option{value: "3"} 03
+            %option{value: "4"} 04
+            %option{value: "5"} 05
+            %option{value: "6"} 06
+            %option{value: "7"} 07
+            %option{value: "8"} 08
+            %option{value: "9"} 09
+            %option{value: "10"} 10
+            %option{value: "11"} 11
+            %option{value: "12"} 12
+          .month-details 月
+          %select#exp_year{name: "exp_year", type: "text"}
+            %option{value: ""} 
+            %option{value: "2020"} 20
+            %option{value: "2021"} 21
+            %option{value: "2022"} 22
+            %option{value: "2023"} 23
+            %option{value: "2024"} 24
+            %option{value: "2025"} 25
+            %option{value: "2026"} 26
+            %option{value: "2027"} 27
+            %option{value: "2028"} 28
+            %option{value: "2029"} 29
+            %option{value: "2030"} 30
+          .year-details 年
+        .card__content__registration__block-title
+          セキュリティーコード
+          %span{class:"require"}
+            必須
+        .card__content__registration__text-code
+          = text_field_tag  "cvc", "", type: 'text', class: 'card__content__registration__input-text', id: "cvc", maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
+        .card__content__registration__submit  
+          = submit_tag "登録する", class: "card__content__registration submit-btn", id: "submit-button"
+.single__footer
+  = link_to "", class: "single__footer__logo"  do
+    = image_tag "/logo-white.png" 
+  %p © FURIMA

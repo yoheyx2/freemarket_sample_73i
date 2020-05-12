@@ -1,7 +1,7 @@
 .single
   .single__header
     %h1
-      = link_to "" do
+      = link_to root_path do
         = image_tag "/logo.png" 
 
   .single__main
@@ -11,11 +11,13 @@
         .buy__content__inner
           .buy__item--box
             %h3.buy__item--image
-              = image_tag "/617W+74K1nL._UY395_.jpg"
+              = image_tag "#{@product.product_images[0].image}"
             .buy__item--detail
-              .buy__item--name 更にセール❗️ メンズ ヴィトン コンパクト財布
+              .buy__item--name 
+                = @product.name
               .buy__item--price.bold
-                %span ¥2,800 
+                %span
+                  = "¥#{@product.price}" 
                 %span.item__fee 税込）送料込み
       .buy__content.buy__item
         .buy__content__inner
@@ -25,26 +27,52 @@
                 .buy__price__row--left
                   支払金額
                 .buy__price__row--right
-                  %span ¥2,800
-            .buy__content.buy__user__info
-              .buy__content__inner
-                %h3 お支払い方法
-                = link_to "" do
-                  %p.user__info__text
-                    %i.fa.fa-plus-circle
-                    %span.buy__register__text 登録してください
-            .buy__content.buy__user__info
-              .buy__content__inner.edit__box
-                %h3 配送先
-                .shipping__user__address
-                  %p 〒194-0002 
-                  %p 南裕也
-                  %p 東京都町田市南つくし野4-9-2
-                .shipping__user__address--edit 
-                  = link_to "" do
-                    変更する
-            .buy__content.buy__user__info
-              %button{class: "btn-default", type: "submit"} 購入する
+                  %span
+                    = "¥#{@product.price}"
+      .buy__content.buy__user__info
+        .buy__content__inner
+          %h3 お支払い方法
+          - if Card.where(user: current_user).exists?
+            .card
+              .card__content
+                クレジットカード情報
+                .card__content__brand
+                  = image_tag @card_src, class: "card__content__brand__img", alt: @card_brand
+              .card__content
+                .card__content__info
+                  .card__content__info__number
+                    = "**** **** **** " + @customer_card.last4
+                  .card__content__info__expiration
+                    .card__info__expiration__title
+                      有効期限
+                    .card__content__info__expiration__date
+                      = @exp_month + " / " + @exp_year
+          - else
+            = link_to new_card_path, class: "user__info__text" do
+              %i.fa.fa-plus-circle こちらから登録して下さい
+      .buy__content.buy__user__info
+        .buy__content__inner.edit__box
+          %h3 配送先
+          .shipping__user__address
+            = "〒#{Address.find_by(user: current_user).postal_code}"
+            %br
+            = Address.find_by(user: current_user).prefecture.name
+            = Address.find_by(user: current_user).city
+            = Address.find_by(user: current_user).address
+            - unless Address.find_by(user: current_user).other == nil
+              = Address.find_by(user: current_user).other
+          .shipping__user__name
+            = @user.first_name
+            = @user.last_name
+            様
+          .shipping__user__address--edit 
+            = link_to users_path do
+              変更する
+      .buy__content.buy__user__info
+        .buy__content.buy__item
+          - if Card.where(user: current_user).exists?
+            = link_to payment_product_path(@product), class: "btn-default" do
+              購入を確定する
 
   .single__footer
     = link_to "", class: "single__footer__logo"  do

@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   
   root "products#index"
 
-  resources :products, only: [:index, :show, :new, :create, :edit] do
+
+  resources :products do
+
     member do
       get 'purchase'
+      get 'payment'
     end
     collection do
       get "set_parents"
@@ -14,6 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :cards, only: [:new, :create, :show, :destroy] do
+  end
   resources :categories, only: [:show]
   resources :users, only: [:index]
   
