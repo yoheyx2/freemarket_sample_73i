@@ -42,8 +42,8 @@
   .mypage__user
     .mypage__user__front
       = image_tag '/member_photo_noimage_thumb.png', alt: '', height: '60px', width: '60px', class: 'user-icon'
-      %p nickname
-      %p 出品数 0
+      %p= current_user.nickname
+      %p 出品数 #{@product_quantity}
     .mypage__user__list
       - @contents.each do|content|
         .mypage__user__list__content-title
