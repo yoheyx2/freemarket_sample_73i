@@ -16,11 +16,10 @@
     width: 800px;
     height: 800px;
     margin: 0 auto;
-    
     .single__main__form {
       width: 600px;
       margin: 0 auto;
-      height: 1350px;
+      height: auto;
       background-color: white;
       border: 1px solid gray;
       h2 {
@@ -31,7 +30,6 @@
       .input__form {
         width: 340px;
         margin: 0 auto;
-        
         .nick__name__filed {
           font-size: 10px;
         }
@@ -49,18 +47,14 @@
           input {
             height: 40px;
             width: 100%;
-            
-          }
-         
+          } 
         }
         .field__mail{
           padding-top: 15px;
           font-size: 10px;
-          
         }
         .field__mail__box input{
           width: 300px;
-          
           height: 40px;
           margin-bottom: 5px;
         }
@@ -72,10 +66,17 @@
         }
         .field__password__box input{
           width: 300px;
-          
           height: 40px;
-          margin-bottom: 10px;
         }
+        .field__password__check {
+          font-size: 10px;
+          input {
+            height: 40px;
+            margin-bottom: 10px;
+            width: 300px;
+          }
+        }
+
         .identification {
           font-size: 10px;
           color: black;
@@ -84,11 +85,9 @@
           font-size: 10px;
           padding-top: 10px;
           &__box {
-            width: 100%;
             display: flex;
-            
             input{
-              width: 40%;
+              width: 140px;
               height: 40px;
             }
             .name {
@@ -101,9 +100,8 @@
           font-size: 10px;
           .user__name__kana__box {
             display: flex;
-            width: 100%;
             input {
-             width: 40%;
+             width: 140px;
              height: 40px;
            }
           }
@@ -122,7 +120,6 @@
               }
             }
             }
-            
             .send__information {
               margin-top: 20px;
               &__name {
@@ -225,8 +222,13 @@
               width: 300px;
               background-color: #3ccace;
               margin-top: 20px;
+              margin-bottom: 50px;
             }
           }
         }
+      }
+      span {
+        color: red;
+        font-size: 10px;
       }
     }
