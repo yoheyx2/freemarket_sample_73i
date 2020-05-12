@@ -2,7 +2,7 @@ class CardsController < ApplicationController
   require 'payjp'
 
   before_action :set_card, only:[:show, :destroy]
-  
+
   def new
     @card = Card.where(user_id: current_user.id)
     redirect_to card_path(current_user.id) if @card.exists?
@@ -27,7 +27,6 @@ class CardsController < ApplicationController
   end
 
   def show
-    @card = Card.find_by(user_id: current_user.id)
     if @card.blank?
       redirect_to action: "new" 
     else
@@ -55,7 +54,6 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    @card = Card.find_by(user_id: current_user.id)
     if @card.blank?
       redirect_to action: "new"
     else

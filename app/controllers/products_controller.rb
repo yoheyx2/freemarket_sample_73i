@@ -71,7 +71,6 @@ class ProductsController < ApplicationController
       @user = current_user
       if @user.card.present?
         Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
-        @card = Card.find_by(user_id: current_user.id)
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @customer_card = customer.cards.retrieve(@card.card_id)
         @card_brand = @customer_card.brand
@@ -99,7 +98,6 @@ class ProductsController < ApplicationController
 
   def payment
     unless @product.situation == 0
-      @card = Card.find_by(user_id: current_user.id)
       @product.situation = 0
       @product.save!
       Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
