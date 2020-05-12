@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :set_product, only: [:edit, :show, :purchase, :update, :destroy, :payment]
-  bedore_action :set_card, only: [:purchase, :payment]
+  before_action :set_card, only: [:purchase, :payment]
 
   def index
     @products = Product.includes(:product_images)
