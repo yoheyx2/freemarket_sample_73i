@@ -16,7 +16,6 @@
     width: 800px;
     height: 800px;
     margin: 0 auto;
-    
     .single__main__form {
       width: 600px;
       margin: 0 auto;
@@ -31,7 +30,6 @@
       .input__form {
         width: 340px;
         margin: 0 auto;
-        
         .nick__name__filed {
           font-size: 10px;
         }
@@ -49,33 +47,26 @@
           input {
             height: 40px;
             width: 100%;
-            
-          }
-         
+          } 
         }
         .field__mail{
           padding-top: 15px;
           font-size: 10px;
-          
         }
         .field__mail__box input{
           width: 300px;
-          
           height: 40px;
           margin-bottom: 5px;
         }
         .field__password {
           font-size: 10px;
-          
         }
         .field__check{
           font-size: 10px;
         }
         .field__password__box input{
           width: 300px;
-          
           height: 40px;
-          
         }
         .field__password__check {
           font-size: 10px;
@@ -109,7 +100,6 @@
           font-size: 10px;
           .user__name__kana__box {
             display: flex;
-            
             input {
              width: 140px;
              height: 40px;
@@ -130,7 +120,6 @@
               }
             }
             }
-            
             .send__information {
               margin-top: 20px;
               &__name {
