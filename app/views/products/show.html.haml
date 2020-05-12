@@ -101,63 +101,61 @@
                 = link_to "購入画面に進む", purchase_product_path(@product)
 
 
-          .main__showMain__contentRight__topContent__itemBox__itemDetail
-            = @product.infomation
-          .main__showMain__contentRight__topContent__itemBox__table
-            %table
-              %tbody
-                %tr
-                  %th 出品者                  
-                  %td hoge
+        .main__showMain__contentRight__topContent__itemBox__itemDetail
+          = @product.infomation
+        .main__showMain__contentRight__topContent__itemBox__table
+          %table
+            %tbody
+              %tr
+                %th 出品者
+                %td
+                  = User.find(@product.user_id).nickname
+                  
+              %tr 
+                %th
+                  カテゴリー
+                %td
+                  = link_to '' do
+                    = @product.category.parent.parent.name
+                    %br
+                    %i{class: "fas fa-chevron-right"}
+                    = @product.category.parent.name
+                    %br
+                    %i{class: "fas fa-chevron-right"}
+                    = @product.category.name
+
+              %tr 
+                %th
+                  ブランド
+                %td
+                  - unless @product.brand.blank?
+                    = @product.brand
+
+              %tr
+                %th
+                  商品の状態
+                %td
+                  = @product.status.name
+                  
+              %tr
+                %th
+                  配送料の負担
+                %td
+                  = @product.delivery.name
+
+              %tr
+                %th
+                  発送元の地域
+                %td
+                  = link_to '' do
+                    = @product.area.name
                     
-                %tr 
-                  %th
-                    カテゴリー
-                  %td
-                    = link_to '' do
-                      = @product.category.parent.parent.name
-                      %br
-                      %i{class: "fas fa-chevron-right"}
-                      = @product.category.parent.name
-                      %br
-                      %i{class: "fas fa-chevron-right"}
-                      = @product.category.name
-                %tr 
-                  %th
-                    ブランド
-                  %td
-
-                %tr
-                  %th
-                    商品サイズ
-                  %td
-
-
-                %tr
-                  %th
-                    商品の状態
-                  %td
-                    未使用品に近い
-
-
-                %tr
-                  %th
-                    配送料の負担
-                  %td
-                    送料込み（出品者負担）
-
-                %tr
-                  %th
-                    発送元の地域
-                  %td
-                    = link_to '' do
-                      岩手県
-                      
-                %tr
-                  %th
-                    発送日の目安
-                  %td
-                    4-7日で発送
+              %tr
+                %th
+                  発送日の目安
+                %td
+                  = @product.day.name
+                    
 
           .main__showMain__contentRight__topContent__itemBox__optionalArea
             %ul

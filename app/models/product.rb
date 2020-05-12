@@ -8,4 +8,10 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images, allow_destroy: true
   validates_associated :product_images
   validates :product_images, presence: true
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :status
+  belongs_to_active_hash :delivery
+  belongs_to_active_hash :day
+  belongs_to_active_hash :area
 end

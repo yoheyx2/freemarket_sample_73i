@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 2020_05_07_045447) do
     t.string "name", null: false
     t.text "infomation", null: false
     t.string "brand"
-    t.integer "status", null: false
-    t.integer "delivery_fee", null: false
-    t.integer "ship_form", null: false
-    t.integer "delivery_time", null: false
+    t.integer "status_id", null: false
+    t.integer "delivery_id", null: false
+    t.integer "area_id", null: false
+    t.integer "day_id", null: false
     t.integer "price", null: false
     t.integer "category_id", null: false
     t.integer "user_id", null: false
