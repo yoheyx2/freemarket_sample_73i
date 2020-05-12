@@ -1,6 +1,8 @@
 class CardsController < ApplicationController
   require 'payjp'
 
+  before_action :set_card, only:[:show, :destroy]
+  
   def new
     @card = Card.where(user_id: current_user.id)
     redirect_to card_path(current_user.id) if @card.exists?
@@ -67,5 +69,9 @@ class CardsController < ApplicationController
         redirect_to card_path(current_user.id), alert: "削除できませんでした。"
       end
     end
+  end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
   end
 end

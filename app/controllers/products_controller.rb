@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :set_product, only: [:edit, :show, :purchase, :update, :destroy, :payment]
+  bedore_action :set_card, only: [:purchase, :payment]
 
   def index
     @products = Product.includes(:product_images)
@@ -126,6 +127,10 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
   end
 
   private
