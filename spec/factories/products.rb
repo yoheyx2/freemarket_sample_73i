@@ -10,5 +10,6 @@ FactoryBot.define do
     delivery_time   {"1"}
     price           {Faker::Number.number(digits: 4)}
     situation       {"1"}
+    user          
   end
 end
