@@ -11,21 +11,31 @@
           .nick__name__filed
             = f.label :ニックネーム 
             %b 必須
-          .nick__name__filed__box 
+          .nick__name__filed__box
             = f.text_field :nickname, placeholder: "フリマ太郎"
+          - if @user.errors.include?(:nickname)
+            %span ニックネームを入力してください
           .field__mail
             = f.label :メールアドレス
             %b 必須
           .field__mail__box
             = f.email_field :email,  placeholder: " PC・携帯どちらでも可"
+          - if @user.errors.include?(:email)
+            %span メールアドレスを入力してください
+          .field__mail
           .field__password
             = f.label :パスワード
             %b 必須
           .field__password__box
             = f.password_field :password, placeholder:" 7文字以上の半角英数字"
+          - if @user.errors.include?(:password)
+            %span パスワードを入力してください
+          .field__password__check
             %br
             = f.label :パスワード（確認用）
             = f.password_field :password_confirmation, autocomplete: "new-password"
+          - if @user.errors.include?(:password_confirmation)
+            %span パスワード（確認用）を入力してください
           .identification
             %a  本人確認
             %p  安心・安全にご利用いただくために、
@@ -37,12 +47,16 @@
             .user__name__box
               = f.text_field :first_name, placeholder:" 例）山田"
               = f.text_field :last_name, placeholder:" 例）太郎", class:"name"
+            - if @user.errors.include?(:first_name)
+              %span 名前を入力してください
           .user__name__kana
             %a お名前カナ（全角）
             %b 必須
             .user__name__kana__box 
               = f.text_field :first_name_furigana, placeholder:" 例）ヤマダ"
               = f.text_field :last_name_furigana, placeholder:" 例）タロウ", class:"kana"
+            - if @user.errors.include?(:first_name_furigana)
+              %span フリガナを入力してください
           .user__birthday
             %a 生年月日
             %b 必須
@@ -57,6 +71,8 @@
                 .send__information__name__box
                   = i.text_field :first_name, placeholder:" 例）鈴木"
                   = i.text_field :last_name, placeholder:" 例）三郎", class:"send"
+                - if @user.errors.include?(:first_name)
+                  %span 名前を入力してください
               .send__information__kana
                 %a お名前カナ（全角）
                 %b 必須
@@ -64,26 +80,36 @@
                   %br
                   = i.text_field :first_name_furigana, placeholder:" 例）スズキ"
                   = i.text_field :last_name_furigana, placeholder:" 例）サブロウ", class:"under"
+                - if @user.errors.include?(:first_name_furigana)
+                  %span フリガナを入力してください
               .send__information__post
                 %a 郵便番号
                 %b 必須
                 .send__information__post__box
-                  = i.text_field :postal_code, placeholder:"012-3456"
+                  = i.text_field :postal_code, placeholder:"0123456"
+                - if @user.errors.include?(:"addresses.postal_code")
+                  %span 郵便番号を入力してください
             .send__information__prefecture
               %a 都道府県
               %b 必須
               .send__information__prefecture__name
                 = i.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:""}
+                - if @user.errors.include?(:"addresses.prefecture_id")
+                  %span 都道府県を選択してください
             .send__information__city
               %a 市区町村
               %b 必須
               .send__information__city__name
                 = i.text_field :city
+                - if @user.errors.include?(:"addresses.city")
+                  %span 市区町村を入力してください
             .send__information__adress
               %a 番地
               %b 必須
               .send__information__adress__box
                 = i.text_field :address
+                - if @user.errors.include?(:"addresses.address")
+                  %span 番地を入力してください
             .send__information__apart
               %a マンション名、ビル名、部屋番号
               %b 任意
