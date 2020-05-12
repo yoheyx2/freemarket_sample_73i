@@ -170,6 +170,7 @@ describe Product do
         product.valid?
         expect(product.errors[:user_id]).to include()
       end
+      
     end
   end
 end
