@@ -76,7 +76,7 @@ describe Product do
         expect(product.errors[:price]).to include()
       end
 
-    end
     
+    end
   end
 end

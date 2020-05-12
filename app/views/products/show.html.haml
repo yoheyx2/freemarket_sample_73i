@@ -3,7 +3,7 @@
   .header__container
     .header__top
       %h1.header__top--img
-        = link_to "" do
+        = link_to root_path do
           = image_tag "/logo.png"
       .header__top__search
         %form
@@ -15,21 +15,38 @@
     .nav
       %ul.listsleft
         %li.listsleft__item
-          = link_to "" do
-            カテゴリー
+          カテゴリー
+          .category-box
+            .parent
+              - @parents.each do |parent|
+                .parent-content
+                  = parent.name
+                  .child
+                    - parent.children.each do |child|
+                      .child-content
+                        = child.name
+                        .grandchild
+                          - child.children.each do |grandchild|
+                            .grandchild-content
+                              = grandchild.name
+
         %li.listsleft__item
-          = link_to "" do
-            ブランド
+          ブランド
       %ul.listsright
-        %li.listsright__item
-          = link_to "" do
-            ログイン
-        %li.listsright__item
-          = link_to "" do
-            新規会員登録   
-
-
-
+        - if user_signed_in? 
+          %li.listsright__item
+            = link_to destroy_user_session_path,method: :delete do
+              ログアウト
+          %li.listsright__item
+            = link_to users_path do
+              マイページ
+        - else 
+          %li.listsright__item
+            = link_to new_user_session_path do
+              ログイン
+          %li.listsright__item
+            = link_to new_user_registration_path do
+              新規会員登録
 
 %nav.breadCrumbs
   %ul
@@ -56,11 +73,6 @@
     %li.product
       %p  product3
         
-
-      
-
-
-
 .main
   .main__showMain
     .main__showMain__contentLeftqq
@@ -74,20 +86,21 @@
               %li
                 - @product.product_images.each do |p|
                   = image_tag p.image.url
-                -# %ul                
-                -#   %li
-                -#     = image_tag "/cb114724c45f993.jpeg"
-                -#   %li
-                -#     = image_tag "/107562989.jpg"
-                -#   %li
-                -#     = image_tag "/640x640_rect_76102931.jpg"
-
+                
           .main__showMain__contentRight__topContent__itemBox__price
             %span
               = "¥#{@product.price}"
             .main__showMain__contentRight__topContent__itemBox__price-detail
               %span
                 (税込)送料込み
+
+          -if user_signed_in? && current_user.id != @product.user_id
+            .main__showMain__contentRight__topContent__itemBox__menu
+              %button{class: "buyBtn", type: "submit"}
+                %span.buyBtm__text
+                  = link_to "購入画面に進む", purchase_product_path(@product)
+
+
           .main__showMain__contentRight__topContent__itemBox__itemDetail
             = @product.infomation
           .main__showMain__contentRight__topContent__itemBox__table
@@ -101,7 +114,7 @@
                   %th
                     カテゴリー
                   %td
-                    = link_to '' do
+                    = link_to "" do
                       = @product.category.parent.parent.name
                       %br
                       %i{class: "fas fa-chevron-right"}
@@ -109,6 +122,7 @@
                       %br
                       %i{class: "fas fa-chevron-right"}
                       = @product.category.name
+                      
                 %tr 
                   %th
                     ブランド
@@ -155,11 +169,7 @@
               %li.optionalBtn
                 =link_to  '' do
                   %i.fa-flag.likeIcon 不適切な商品の通報
-                    
-
-
-
-
+          
 
         /以下は追加機能実装の際に必要になるので記述してます
        
@@ -178,16 +188,14 @@
               %i.fa-comment  
                 コメントする
 
-
-
       %ul.links
         %li.left
-          =link_to  '' do
+          = link_to product_path(@previous) do
             %i.angle-left
             %span
               前の商品
         %li.right
-          =link_to '' do
+          =link_to product_path(@next) do
             %span
               後ろの商品
             %i.angle-left
@@ -195,8 +203,6 @@
       .main__showMain__contentRight__relatedItems
         =link_to ''  do
           ベビー・キッズをもっと見る
-
-
 
   .main__inner
     .inner__container
@@ -209,8 +215,6 @@
           = image_tag "/card_button-ios.png"
         = link_to "" ,class: "gbtn" do
           = image_tag "/unnamed.png"
-
-
 
 .footer
   %ul.footer__contents
@@ -258,9 +262,14 @@
       = image_tag "/logo-white.png"
   %p
     © FURIMA
-= link_to "" do
+= link_to new_product_path do
   .purchaseBtn
     %span.purchaseBtn__text
       出品する
     = image_tag "/icon_camera.png", class: "purchaseBtn__icon"
 
+- if user_signed_in? && current_user.id == @product.user_id
+  = link_to edit_product_path(@product) do
+    .editBtn
+      %span.editBtn__text
+        商品の編集画面に進む
