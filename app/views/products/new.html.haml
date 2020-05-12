@@ -37,19 +37,19 @@
         =f.text_field :brand, class:"sell__product__detail--input" , value:"", placeholder:"例）シャネル", autocomplete:"off"
         %label.sell__product__detail--label 商品の状態
         %span.sell__product__detail--span 必須
-        =f.select :status, [["新品、未使用",1],["未使用に近い",2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], {prompt:"選択してください"}, {class:"sell__product__detail--select"}
+        = f.collection_select :status_id, Status.all, :id, :name, {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
 
       .sell__product__delivery
         %p.sell__product__delivery--p 配送について
         %label.sell__product__delivery--label 配送料の負担
         %span.sell__product__delivery--span 必須
-        =f.select :delivery_fee, [["送料込み(出品者負担)",2],["着払い(購入者負担)",1]], {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
+        = f.collection_select :delivery_id, Delivery.all, :id, :name, {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
         %label.sell__product__delivery--label 発送元の地域
         %span.sell__product__delivery--span 必須
-        = f.collection_select :ship_form, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
+        = f.collection_select :area_id, Area.all, :id, :name, {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
         %label.sell__product__delivery--label 発送までの日数
         %span.sell__product__delivery--span 必須
-        =f.select :delivery_time, [["1~2日で発送",1],["2~3日で発送",2],["4~7日で発送",3]], {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
+        = f.collection_select :day_id, Day.all, :id, :name, {prompt:"選択してください"}, {class:"sell__product__delivery--select"}
 
       .sell__product__price
         %p.sell__product__price--p 価格（¥300〜9,999,999）

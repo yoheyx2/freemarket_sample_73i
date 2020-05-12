@@ -49,10 +49,10 @@
 |name|string|null: false|
 |infomation|text|null: false|
 |brand|string||
-|status|integer|null: false|
-|delivery_fee|integer|null: false|
-|ship_form|integer|null: false|
-|delivery_time|integer|null: false|
+|status_id|integer|null: false|
+|delivery_id|integer|null: false|
+|area_id|integer|null: false|
+|day_id|integer|null: false|
 |price|integer|null: false|
 |situation|integer|null: false|
 <!-- situationカラムでは 出品中→1 / 売却済→0 でステータスを管理する -->
