@@ -80,8 +80,10 @@
           セキュリティーコード
           %span{class:"require"}
             必須
-        = text_field_tag  "cvc", "", type: 'text', class: 'card__content__registration__input-text', id: "cvc", maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
-        = submit_tag "登録する", class: "card__content__registration__input-text submit-btn", id: "submit-button"
+        .card__content__registration__text-code
+          = text_field_tag  "cvc", "", type: 'text', class: 'card__content__registration__input-text', id: "cvc", maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
+        .card__content__registration__submit  
+          = submit_tag "登録する", class: "card__content__registration submit-btn", id: "submit-button"
 .single__footer
   = link_to "", class: "single__footer__logo"  do
     = image_tag "/logo-white.png" 

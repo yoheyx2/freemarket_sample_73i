@@ -1,7 +1,7 @@
 .single
   .single__header
     %h1
-      = link_to "" do
+      = link_to root_path do
         = image_tag "/logo.png" 
 
   .single__main
@@ -33,40 +33,45 @@
         .buy__content__inner
           %h3 お支払い方法
           - if Card.where(user: current_user).exists?
-            .purchase_function
-              .credit_card_info_title
+            .card
+              .card__content
                 クレジットカード情報
-                .credit_card_info
-                  .credit_card_info__brand
-                    = image_tag @card_src, class: "credit_card_info__brand__img", alt: @card_brand
-                  .credit_card_info__numbers
-                    .number
-                      = "**** **** **** " + @customer_card.last4
-                    .expiration_date
-                      .expiration_date__title
-                        有効期限
-                      .expiration_date__info
-                        = @exp_month + " / " + @exp_year
+                .card__content__brand
+                  = image_tag @card_src, class: "card__content__brand__img", alt: @card_brand
+              .card__content
+                .card__content__info
+                  .card__content__info__number
+                    = "**** **** **** " + @customer_card.last4
+                  .card__content__info__expiration
+                    .card__info__expiration__title
+                      有効期限
+                    .card__content__info__expiration__date
+                      = @exp_month + " / " + @exp_year
           - else
-            = link_to new_card_path, class: "link-blue" do
-              登録して下さい
-        .buy__content.buy__user__info
-          .buy__content__inner.edit__box
-            %h3 配送先
-            .shipping__user__address
-              = "〒#{Address.find_by(user: current_user).postal_code}"
-              %br
-              = Address.find_by(user: current_user).prefecture.name
-              = Address.find_by(user: current_user).city
-              = Address.find_by(user: current_user).address
-              - unless Address.find_by(user: current_user).other == nil
-                = Address.find_by(user: current_user).other
-            .shipping__user__address--edit 
-              = link_to users_path do
-                変更する
-        .buy__content.buy__user__info
+            = link_to new_card_path, class: "user__info__text" do
+              %i.fa.fa-plus-circle こちらから登録して下さい
+      .buy__content.buy__user__info
+        .buy__content__inner.edit__box
+          %h3 配送先
+          .shipping__user__address
+            = "〒#{Address.find_by(user: current_user).postal_code}"
+            %br
+            = Address.find_by(user: current_user).prefecture.name
+            = Address.find_by(user: current_user).city
+            = Address.find_by(user: current_user).address
+            - unless Address.find_by(user: current_user).other == nil
+              = Address.find_by(user: current_user).other
+          .shipping__user__name
+            = @user.first_name
+            = @user.last_name
+            様
+          .shipping__user__address--edit 
+            = link_to users_path do
+              変更する
+      .buy__content.buy__user__info
+        .buy__content.buy__item
           - if Card.where(user: current_user).exists?
-            = link_to payment_product_path(@product), class: "buy-wrapper__main__pay-btn" do
+            = link_to payment_product_path(@product), class: "btn-default" do
               購入を確定する
 
   .single__footer
