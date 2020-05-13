@@ -1,14 +1,14 @@
 # freemarket-sample DB設計
 
-## usersテーブル => Trello記載の「ユーザー登録時のビジネスルール」を参照
-##                ユーザー情報(1)、本人確認情報(2)で構成
+![freemarket_sample_73i_ERdiagram](https://user-images.githubusercontent.com/62415847/81760586-8f9b1500-9502-11ea-9719-ea023833608c.png)
+
+
+## usersテーブル => ユーザー情報、本人確認情報
 |Column|Type|Options|
 |------|----|-------|
-## （1）
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-## （2） => date_of_birthのみdate型を採用
 |first_name|string|null: false|
 |first_name_furigana|string|null: false|
 |last_name|string|null: false|
@@ -18,10 +18,10 @@
 - has_many :products
 - has_many :cards
 - has_many :addresses
-### 追加実装時 - has_many :likes
-### 追加実装時 - has_many :comments
+- has_many :likes    (追加実装時)
+- has_many :comments (追加実装時)
 
-## addressesテーブル => 商品送付先情報 (otherカラムは「マンション名やビル名、部屋番号」を入力する想定)
+## addressesテーブル => 商品送付先情報
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|integer|null: false|
@@ -34,7 +34,7 @@
 ### Association
 - belongs_to :user
 
-## cardsテーブル => Pay.jpのデータ保管用 (参考URL: https://qiita.com/takachan_coding/items/f7e70794b9ca03b559dd)
+## cardsテーブル => Pay.jpのデータ保管用
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
@@ -43,7 +43,7 @@
 ### Association
 - belongs_to :user
 
-## productsテーブル => Trello記載の「商品購入機能のビジネスルール」を参照
+## productsテーブル => 出品商品情報
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -55,16 +55,16 @@
 |day_id|integer|null: false|
 |price|integer|null: false|
 |situation|integer|null: false|
-<!-- situationカラムでは 出品中→1 / 売却済→0 でステータスを管理する -->
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
+<!-- situationカラムでは 出品中→1 / 売却済→0 でステータスを管理する -->
 ### Association
 - belongs_to :user
 - has_many :product_images
-### 追加実装時 - has_many :likes
-### 追加実装時 - has_many :comments
+- has_many :likes    (追加実装時)
+- has_many :comments (追加実装時)
 
-## product_imagesテーブル
+## product_imagesテーブル => 出品商品情報（画像）
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
@@ -80,6 +80,8 @@
 ### Association
 - has_many :products
 
+
+
 # 「お気に入り機能」追加実装時に必要なテーブル設計
 ## likesテーブル
 |Column|Type|Options|
@@ -89,6 +91,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :product
+
 
 # 「質問・コメント機能」追加実装時に必要なテーブル設計
 ## commentsテーブル
