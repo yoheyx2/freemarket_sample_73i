@@ -33,29 +33,29 @@ describe Product do
         expect(product.errors[:category_id]).to include()
       end
 
-      it "statusがない場合は保存できないこと" do
-        product = build(:product, status: nil, product_images: [build(:product_image)])
+      it "status_idがない場合は保存できないこと" do
+        product = build(:product, status_id: nil, product_images: [build(:product_image)])
         product.valid?
-        expect(product.errors[:status]).to include()
+        expect(product.errors[:status_id]).to include()
       end
 
-      it "delivery_feeがない場合は保存できないこと" do
-        product = build(:product, delivery_fee: nil, product_images: [build(:product_image)])
+      it "delivery_idがない場合は保存できないこと" do
+        product = build(:product, delivery_id: nil, product_images: [build(:product_image)])
         product.valid?
-        expect(product.errors[:delivery_fee]).to include()
+        expect(product.errors[:delivery_id]).to include()
 
       end
 
-      it "ship_formがない場合は保存できないこと" do
-        product = build(:product, ship_form: nil, product_images: [build(:product_image)])
+      it "area_idがない場合は保存できないこと" do
+        product = build(:product, area_id: nil, product_images: [build(:product_image)])
         product.valid?
-        expect(product.errors[:ship_form]).to include()
+        expect(product.errors[:area_id]).to include()
       end
 
-      it "delivery_timeがない場合は保存できないこと" do
-        product = build(:product, delivery_time: nil, product_images: [build(:product_image)])
+      it "day_idがない場合は保存できないこと" do
+        product = build(:product, day_id: nil, product_images: [build(:product_image)])
         product.valid?
-        expect(product.errors[:delivery_time]).to include()
+        expect(product.errors[:day_id]).to include()
       end
 
       it "priceがない場合は保存できないこと" do
@@ -123,28 +123,28 @@ describe Product do
         expect(product.errors[:category_id]).to include()
       end
 
-      it "statusがない場合は保存できないこと" do
-        product = build(:product, status: nil, product_images: [build(:product_image)])
+      it "status_idがない場合は保存できないこと" do
+        product = build(:product, status_id: nil, product_images: [build(:product_image)])
         product.valid?
-        expect(product.errors[:status]).to include()
+        expect(product.errors[:status_id]).to include()
       end
 
-      it "delivery_feeがない場合は保存できないこと" do
-        product = build(:product, delivery_fee: nil, product_images: [build(:product_image)])
+      it "delivery_idがない場合は保存できないこと" do
+        product = build(:product, delivery_id: nil, product_images: [build(:product_image)])
         product.valid?
-        expect(product.errors[:delivery_fee]).to include()
+        expect(product.errors[:delivery_id]).to include()
       end
 
-      it "ship_formがない場合は保存できないこと" do
-        product = build(:product, ship_form: nil, product_images: [build(:product_image)])
+      it "area_idがない場合は保存できないこと" do
+        product = build(:product, area_id: nil, product_images: [build(:product_image)])
         product.valid?
-        expect(product.errors[:ship_form]).to include()
+        expect(product.errors[:area_id]).to include()
       end
 
-      it "delivery_timeがない場合は保存できないこと" do
-        product = build(:product, delivery_time: nil, product_images: [build(:product_image)])
+      it "day_idがない場合は保存できないこと" do
+        product = build(:product, day_id: nil, product_images: [build(:product_image)])
         product.valid?
-        expect(product.errors[:delivery_time]).to include()
+        expect(product.errors[:day_id]).to include()
       end
 
       it "priceがない場合は保存できないこと" do

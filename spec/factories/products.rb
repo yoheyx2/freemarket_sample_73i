@@ -4,10 +4,10 @@ FactoryBot.define do
     infomation      {Faker::Games::Zelda.game}
     category_id     {"1"}
     brand           {Faker::Games::Zelda.location}
-    status          {"1"}
-    delivery_fee    {"1"}
-    ship_form       {"1"}
-    delivery_time   {"1"}
+    status_id       {"1"}
+    delivery_id     {"1"}
+    area_id         {"1"}
+    day_id          {"1"}
     price           {Faker::Number.number(digits: 4)}
     situation       {"1"}
     user
