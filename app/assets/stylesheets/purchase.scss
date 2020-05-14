@@ -74,6 +74,7 @@
               text-align: left;
               font-size: 15px;
               span {
+                color: black;
                 font-size: 12px;
               }
             }
@@ -101,8 +102,11 @@
                   padding-top: 10px;
                 }
                 &--right {
-                  font-size: 26px;
-                  font-weight: 500;
+                  span{
+                    color: black;
+                    font-size: 26px;
+                    font-weight: 500;
+                  }
                 }
               }
             }
