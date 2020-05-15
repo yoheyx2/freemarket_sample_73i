@@ -54,7 +54,6 @@ $(function(){
             $("#category-select").append(`<select class="sell__product__detail--select select-grandchild" name="product[category_id]" id="product_category_id"><option value="">選択してください</option></select>`);
             data.grandchildren.forEach(function(grandchild){
               $(".select-grandchild").append(`<option value="${grandchild.id}">${grandchild.name}</option>`);
-              console.log("OKA");
             })
           })
         }
